@@ -24,9 +24,7 @@
       --shadow-strong: 0 28px 60px rgba(0, 0, 0, 0.75);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -36,14 +34,8 @@
       line-height: 1.6;
     }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
     .page {
       max-width: 1100px;
@@ -90,12 +82,8 @@
       overflow: hidden;
       border: 1px solid var(--border);
     }
-
     .brand-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+      width: 100%; height: 100%; object-fit: cover; display: block;
     }
 
     .brand-name h1 {
@@ -104,7 +92,6 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
     }
-
     .brand-name span {
       margin: 0;
       font-size: 11px;
@@ -129,11 +116,8 @@
       gap: 18px;
       align-items: stretch;
     }
-
     @media (max-width: 880px) {
-      .hero-section {
-        grid-template-columns: 1fr;
-      }
+      .hero-section { grid-template-columns: 1fr; }
     }
 
     .hero-left {
@@ -143,16 +127,20 @@
       background: radial-gradient(circle at top left, #020617, #020617 45%, #020617 100%);
       box-shadow: var(--shadow-strong);
     }
+    .hero-right {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top, #020617 0, #000 80%);
+      padding: 16px 14px 14px;
+      box-shadow: var(--shadow-strong);
+    }
 
     .hero-title {
       margin: 14px 0 4px;
       font-size: clamp(26px, 5vw, 36px);
       line-height: 1.2;
     }
-
-    .hero-title span.accent {
-      color: var(--accent);
-    }
+    .hero-title span.accent { color: var(--accent); }
 
     .hero-subtitle {
       margin: 4px 0 12px;
@@ -182,10 +170,8 @@
       color: #022c22;
       box-shadow: 0 22px 48px rgba(34, 197, 94, 0.5);
     }
-
     .btn-primary span.icon {
-      width: 18px;
-      height: 18px;
+      width: 18px; height: 18px;
       border-radius: 999px;
       border: 2px solid #022c22;
       display: inline-flex;
@@ -210,19 +196,7 @@
       font-size: 12px;
       color: var(--muted);
     }
-
-    .hero-risk span {
-      color: var(--danger);
-      font-weight: 600;
-    }
-
-    .hero-right {
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      background: radial-gradient(circle at top, #020617 0, #000 80%);
-      padding: 16px 14px 14px;
-      box-shadow: var(--shadow-strong);
-    }
+    .hero-risk span { color: var(--danger); font-weight: 600; }
 
     .trust-block {
       border-radius:18px;
@@ -232,7 +206,6 @@
       margin-top:24px;
       box-shadow:0 18px 42px rgba(0,0,0,0.42);
     }
-
     .trust-block h2 {
       margin:0 0 6px;
       font-size:16px;
@@ -240,7 +213,6 @@
       letter-spacing:0.08em;
       color:#22c55e;
     }
-
     .trust-block p {
       margin:0;
       color:#97adc5;
@@ -253,11 +225,8 @@
       grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
       gap: 18px;
     }
-
     @media (max-width: 880px) {
-      main {
-        grid-template-columns: 1fr;
-      }
+      main { grid-template-columns: 1fr; }
     }
 
     section {
@@ -275,14 +244,13 @@
       color: var(--muted);
     }
 
-    /* AD CONTAINERS (neon styled) */
+    /* AD containers */
     .ads-container {
       margin-top: 18px;
       margin-bottom: 4px;
       display: flex;
       justify-content: center;
     }
-
     .ads-frame {
       border-radius: 999px;
       border: 1px solid var(--accent);
@@ -292,34 +260,23 @@
       max-width: 100%;
       overflow: hidden;
     }
-
-    .ads-desktop {
-      display: block;
-    }
-
-    .ads-mobile {
-      display: none;
-    }
+    .ads-desktop { display: block; }
+    .ads-mobile { display: none; }
 
     @media (max-width: 768px) {
-      .ads-desktop {
-        display: none;
-      }
-      .ads-mobile {
-        display: block;
-      }
+      .ads-desktop { display: none; }
+      .ads-mobile { display: block; }
     }
 
-    /* FLOATING BOTTOM MOBILE AD */
+    /* Floating mobile ad */
     .floating-ad {
       position: fixed;
       left: 0;
       right: 0;
       bottom: 0;
       z-index: 9999;
-      display: none; /* only show on mobile via media query */
+      display: none;
     }
-
     .floating-ad-inner {
       margin: 0 auto 8px;
       max-width: 360px;
@@ -330,7 +287,6 @@
       padding: 4px 8px 6px;
       position: relative;
     }
-
     .floating-ad-close {
       position: absolute;
       top: -8px;
@@ -347,24 +303,73 @@
       color: #f9fafb;
       box-shadow: 0 0 10px rgba(0,0,0,0.6);
     }
-
     @media (max-width: 768px) {
-      .floating-ad {
-        display: block;
-      }
+      .floating-ad { display: block; }
     }
   </style>
+
+  <script>
+    // Helper to render an Adsterra zone into a container div
+    function renderAdsterra(containerId, width, height) {
+      var container = document.getElementById(containerId);
+      if (!container) return;
+
+      // Define zone options
+      window.atOptions = {
+        key: '71ece280e81f6067a42502b53a9dbc85',
+        format: 'iframe',
+        height: height,
+        width: width,
+        params: {}
+      };
+
+      // IMPORTANT: replace this with the exact invoke.js URL from your Adsterra snippet
+      var scriptUrl = '<script type="text/javascript">
+  atOptions = {
+  	'key' : '71ece280e81f6067a42502b53a9dbc85',
+  	'format' : 'iframe',
+  	'height' : 90,
+  	'width' : 728,
+  	'params' : {}
+  };
+</script>
+<script
+  type="text/javascript"
+  src="//www.highperformanceformat.com/71ece280e81f6067a42502b53a9dbc85/invoke.js"
+></script>';
+
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.src = scriptUrl;
+      container.appendChild(s);
+    }
+
+    window.addEventListener('load', function () {
+      // Hero ad
+      renderAdsterra('ad1-desktop', 728, 90);
+      renderAdsterra('ad1-mobile', 320, 50);
+
+      // Mid-page ad
+      renderAdsterra('ad2-desktop', 728, 90);
+      renderAdsterra('ad2-mobile', 320, 50);
+
+      // Footer ad
+      renderAdsterra('ad3-desktop', 728, 90);
+      renderAdsterra('ad3-mobile', 320, 50);
+
+      // Floating bottom mobile ad
+      renderAdsterra('ad-floating', 320, 50);
+    });
+  </script>
 </head>
 <body>
 
-  <!-- FREE MINER TRUST BANNER -->
   <div class="free-banner">
     100% Free Miner — No deposit, no unlock fees, no pay-to-earn schemes
   </div>
 
   <div class="page">
 
-    <!-- Top bar -->
     <header>
       <div class="brand">
         <div class="brand-logo">
@@ -406,35 +411,11 @@
           <a href="YOUR_PRIVACY_POLICY_URL_HERE" class="btn-secondary">Privacy Policy</a>
         </div>
 
-        <!-- RESPONSIVE AD #1: Under Download Button -->
+        <!-- Responsive Ad #1 (under download button) -->
         <div class="ads-container">
           <div class="ads-frame">
-            <!-- Desktop 728x90 -->
-            <div class="ads-desktop">
-              <script type="text/javascript">
-                atOptions = {
-                  'key' : '71ece280e81f6067a42502b53a9dbc85',
-                  'format' : 'iframe',
-                  'height' : 90,
-                  'width' : 728,
-                  'params' : {}
-                };
-                document.write('<scr' + 'ipt type="text/javascript" src="https://www.highperformanceformat.com/invoke.js"></scr' + 'ipt>');
-              </script>
-            </div>
-            <!-- Mobile 320x50 -->
-            <div class="ads-mobile">
-              <script type="text/javascript">
-                atOptions = {
-                  'key' : '71ece280e81f6067a42502b53a9dbc85',
-                  'format' : 'iframe',
-                  'height' : 50,
-                  'width' : 320,
-                  'params' : {}
-                };
-                document.write('<scr' + 'ipt type="text/javascript" src="https://www.highperformanceformat.com/invoke.js"></scr' + 'ipt>');
-              </script>
-            </div>
+            <div class="ads-desktop" id="ad1-desktop"></div>
+            <div class="ads-mobile" id="ad1-mobile"></div>
           </div>
         </div>
 
@@ -466,7 +447,7 @@
       </div>
     </section>
 
-    <!-- TRUST BLOCK -->
+    <!-- TRUST -->
     <section class="trust-block">
       <h2>Free Miner — No Payments Ever</h2>
       <p>
@@ -500,39 +481,15 @@
       </section>
     </main>
 
-    <!-- RESPONSIVE AD #2: Mid Page -->
+    <!-- Responsive Ad #2 (mid page) -->
     <div class="ads-container">
       <div class="ads-frame">
-        <!-- Desktop -->
-        <div class="ads-desktop">
-          <script type="text/javascript">
-            atOptions = {
-              'key' : '71ece280e81f6067a42502b53a9dbc85',
-              'format' : 'iframe',
-              'height' : 90,
-              'width' : 728,
-              'params' : {}
-            };
-            document.write('<scr' + 'ipt type="text/javascript" src="https://www.highperformanceformat.com/invoke.js"></scr' + 'ipt>');
-          </script>
-        </div>
-        <!-- Mobile -->
-        <div class="ads-mobile">
-          <script type="text/javascript">
-            atOptions = {
-              'key' : '71ece280e81f6067a42502b53a9dbc85',
-              'format' : 'iframe',
-              'height' : 50,
-              'width' : 320,
-              'params' : {}
-            };
-            document.write('<scr' + 'ipt type="text/javascript" src="https://www.highperformanceformat.com/invoke.js"></scr' + 'ipt>');
-          </script>
-        </div>
+        <div class="ads-desktop" id="ad2-desktop"></div>
+        <div class="ads-mobile" id="ad2-mobile"></div>
       </div>
     </div>
 
-    <!-- INSTALL SECTION -->
+    <!-- INSTALL -->
     <section style="margin-top:18px;">
       <h2>Install on Android</h2>
       <ul>
@@ -543,11 +500,10 @@
       </ul>
     </section>
 
-    <!-- PRIVACY & SUPPORT -->
+    <!-- PRIVACY -->
     <section style="margin-top:18px;">
       <h2>Privacy & Support</h2>
       <p>
-        <!-- TODO: replace with your real privacy policy URL -->
         <a href="YOUR_PRIVACY_POLICY_URL_HERE" target="_blank" rel="noopener noreferrer">
           View Privacy Policy
         </a>
@@ -557,35 +513,11 @@
       </p>
     </section>
 
-    <!-- RESPONSIVE AD #3: Above Footer -->
+    <!-- Responsive Ad #3 (above footer) -->
     <div class="ads-container">
       <div class="ads-frame">
-        <!-- Desktop -->
-        <div class="ads-desktop">
-          <script type="text/javascript">
-            atOptions = {
-              'key' : '71ece280e81f6067a42502b53a9dbc85',
-              'format' : 'iframe',
-              'height' : 90,
-              'width' : 728,
-              'params' : {}
-            };
-            document.write('<scr' + 'ipt type="text/javascript" src="https://www.highperformanceformat.com/invoke.js"></scr' + 'ipt>');
-          </script>
-        </div>
-        <!-- Mobile -->
-        <div class="ads-mobile">
-          <script type="text/javascript">
-            atOptions = {
-              'key' : '71ece280e81f6067a42502b53a9dbc85',
-              'format' : 'iframe',
-              'height' : 50,
-              'width' : 320,
-              'params' : {}
-            };
-            document.write('<scr' + 'ipt type="text/javascript" src="https://www.highperformanceformat.com/invoke.js"></scr' + 'ipt>');
-          </script>
-        </div>
+        <div class="ads-desktop" id="ad3-desktop"></div>
+        <div class="ads-mobile" id="ad3-mobile"></div>
       </div>
     </div>
 
@@ -594,26 +526,15 @@
     </div>
   </div>
 
-  <!-- FLOATING MOBILE AD (BOTTOM) -->
+  <!-- Floating bottom mobile ad -->
   <div id="floatingAd" class="floating-ad">
     <div class="floating-ad-inner">
       <button class="floating-ad-close" onclick="document.getElementById('floatingAd').style.display='none';">×</button>
-      <!-- Mobile 320x50 floating ad -->
-      <script type="text/javascript">
-        atOptions = {
-          'key' : '71ece280e81f6067a42502b53a9dbc85',
-          'format' : 'iframe',
-          'height' : 50,
-          'width' : 320,
-          'params' : {}
-        };
-        document.write('<scr' + 'ipt type="text/javascript" src="https://www.highperformanceformat.com/invoke.js"></scr' + 'ipt>');
-      </script>
+      <div id="ad-floating"></div>
     </div>
   </div>
 
   <script>
-    // Footer year
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
