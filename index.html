@@ -2,540 +2,301 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Rio Miner – Real Android Crypto Mining (Free, No Deposits)</title>
+  <title>Rio Miner – Free Android Crypto Miner</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="Rio Miner is a real crypto mining app for Android. No deposits, no pay-to-earn schemes. Mine directly from your device and track live stats."
+    content="Rio Miner is a free crypto mining app for Android. No deposits, no unlock fees, no cloud mining tricks. Download the APK and start real mining instantly."
   />
-  <style>
-    :root {
-      --bg: #020617;
-      --bg-alt: #020817;
-      --accent: #22c55e;
-      --accent-soft: #22c55e22;
-      --accent-strong: #16a34a;
-      --text: #e5f0ff;
-      --muted: #8fa3c2;
-      --danger: #fb7185;
-      --border: #1f2937;
-      --radius-lg: 18px;
-      --radius-sm: 10px;
-      --shadow-strong: 0 28px 60px rgba(0, 0, 0, 0.75);
-    }
+<style>
+  :root {
+    --bg: #020617;
+    --bg2: #000510;
+    --accent: #22c55e;
+    --accent-soft: #22c55e33;
+    --muted: #94a3b8;
+    --border: #1f2937;
+    --radius: 18px;
+  }
 
-    * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    background: radial-gradient(circle at top, #0f172a, #020617);
+    color: #f8fafc;
+    line-height: 1.6;
+  }
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #0f172a 0, #020617 45%, #000 100%);
-      color: var(--text);
-      line-height: 1.6;
-    }
+  .page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 18px 110px;
+  }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+  header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
 
-    .page {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 24px 16px 80px;
-    }
+  .brand-logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: radial-gradient(circle at top, #22c55e, #16a34a 70%, #0f172a);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .brand-logo img {
+    width: 100%;
+    height: 100%;
+  }
 
-    .free-banner {
-      background:#042014;
-      color:#9ef8c7;
-      padding:8px 14px;
-      text-align:center;
-      font-size:13px;
-      border-bottom:1px solid #0f3a25;
-      letter-spacing:0.06em;
-      text-transform:uppercase;
-      font-weight:600;
-      border-radius:8px;
-      margin-bottom:10px;
-    }
+  .hero {
+    padding: 22px 20px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: #020617e0;
+    box-shadow: 0 0 30px rgba(0,0,0,0.45);
+  }
 
-    header {
-      padding: 10px 4px 4px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-    }
+  .hero h1 {
+    margin: 0 0 8px;
+    font-size: 28px;
+  }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+  .hero h1 span {
+    color: var(--accent);
+  }
 
-    .brand-logo {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      background: radial-gradient(circle at top, #22c55e, #16a34a, #0f172a);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-    .brand-logo img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
-    }
+  .hero p {
+    margin: 0 0 16px;
+    color: var(--muted);
+  }
 
-    .brand-name h1 {
-      margin: 0;
-      font-size: 18px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-    .brand-name span {
-      margin: 0;
-      font-size: 11px;
-      color: var(--muted);
-    }
+  .btn {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 14px;
+    margin: 4px 8px 14px 0;
+    text-decoration: none;
+  }
 
-    .header-tag {
-      font-size: 11px;
-      color: var(--muted);
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(15, 23, 42, 0.92);
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
+  .btn-green {
+    background: radial-gradient(circle at top left, #22c55e, #16a34a);
+    color: #022c22;
+  }
 
-    .hero-section {
-      margin-top: 18px;
-      display: grid;
-      grid-template-columns: minmax(0, 2.2fr) minmax(0, 2fr);
-      gap: 18px;
-      align-items: stretch;
-    }
-    @media (max-width: 880px) {
-      .hero-section { grid-template-columns: 1fr; }
-    }
+  .btn-outline {
+    border: 1px solid var(--border);
+    background: #020617cc;
+    color: var(--muted);
+  }
 
-    .hero-left {
-      padding: 20px 18px;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      background: radial-gradient(circle at top left, #020617, #020617 45%, #020617 100%);
-      box-shadow: var(--shadow-strong);
-    }
-    .hero-right {
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      background: radial-gradient(circle at top, #020617 0, #000 80%);
-      padding: 16px 14px 14px;
-      box-shadow: var(--shadow-strong);
-    }
+  .warning {
+    font-size: 12px;
+    color: #fb7185;
+    margin-top: 8px;
+  }
 
-    .hero-title {
-      margin: 14px 0 4px;
-      font-size: clamp(26px, 5vw, 36px);
-      line-height: 1.2;
-    }
-    .hero-title span.accent { color: var(--accent); }
+  /* AD FRAMES */
+  .ad-frame {
+    margin: 18px auto;
+    text-align: center;
+    max-width: 900px;
+    border: 1px solid var(--accent-soft);
+    border-radius: 12px;
+    background: rgba(2,8,17,0.9);
+    padding: 4px 6px;
+    overflow: hidden;
+  }
 
-    .hero-subtitle {
-      margin: 4px 0 12px;
-      font-size: 14px;
-      color: var(--muted);
-      max-width: 480px;
-    }
+  /* FLOATING MOBILE AD */
+  #floatingAd {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 8px;
+    z-index: 9999;
+    display: none;
+  }
+  #floatingAdInner {
+    margin: 0 auto;
+    max-width: 360px;
+    border-radius: 999px;
+    border: 1px solid var(--accent-soft);
+    box-shadow: 0 0 24px rgba(34,197,94,0.5);
+    background: #020a12e0;
+    padding: 6px 8px;
+    position: relative;
+  }
+  #floatingClose {
+    position: absolute;
+    right: -6px;
+    top: -6px;
+    width: 26px;
+    height: 26px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    background: #000;
+    color: #fff;
+    font-size: 14px;
+  }
 
-    .hero-cta {
-      margin-top: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+  @media(max-width:768px) {
+    #floatingAd { display: block; }
+  }
 
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 11px 22px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 14px;
-      background: radial-gradient(circle at top left, #22c55e, #16a34a);
-      color: #022c22;
-      box-shadow: 0 22px 48px rgba(34, 197, 94, 0.5);
-    }
-    .btn-primary span.icon {
-      width: 18px; height: 18px;
-      border-radius: 999px;
-      border: 2px solid #022c22;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      background: #bbf7d0;
-    }
+  footer {
+    margin-top: 40px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+  }
 
-    .btn-secondary {
-      border-radius: 999px;
-      padding: 10px 18px;
-      border: 1px solid var(--border);
-      background: rgba(15, 23, 42, 0.95);
-      color: var(--muted);
-      font-size: 13px;
-      cursor: pointer;
-    }
-
-    .hero-risk {
-      margin-top: 8px;
-      font-size: 12px;
-      color: var(--muted);
-    }
-    .hero-risk span { color: var(--danger); font-weight: 600; }
-
-    .trust-block {
-      border-radius:18px;
-      border:1px solid #1f2937;
-      background:linear-gradient(135deg, #072515, #03140b);
-      padding:16px 14px;
-      margin-top:24px;
-      box-shadow:0 18px 42px rgba(0,0,0,0.42);
-    }
-    .trust-block h2 {
-      margin:0 0 6px;
-      font-size:16px;
-      text-transform:uppercase;
-      letter-spacing:0.08em;
-      color:#22c55e;
-    }
-    .trust-block p {
-      margin:0;
-      color:#97adc5;
-      font-size:14px;
-    }
-
-    main {
-      margin-top: 24px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
-      gap: 18px;
-    }
-    @media (max-width: 880px) {
-      main { grid-template-columns: 1fr; }
-    }
-
-    section {
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      background: radial-gradient(circle at top left, #020617, #020617 40%, #050816);
-      padding: 16px 16px 14px;
-      font-size: 14px;
-    }
-
-    .footer {
-      margin-top: 26px;
-      text-align: center;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    /* AD containers */
-    .ads-container {
-      margin-top: 18px;
-      margin-bottom: 4px;
-      display: flex;
-      justify-content: center;
-    }
-    .ads-frame {
-      border-radius: 999px;
-      border: 1px solid var(--accent);
-      box-shadow: 0 0 18px rgba(34, 197, 94, 0.45);
-      padding: 4px 6px;
-      background: radial-gradient(circle at top, #022c22, #020617);
-      max-width: 100%;
-      overflow: hidden;
-    }
-    .ads-desktop { display: block; }
-    .ads-mobile { display: none; }
-
-    @media (max-width: 768px) {
-      .ads-desktop { display: none; }
-      .ads-mobile { display: block; }
-    }
-
-    /* Floating mobile ad */
-    .floating-ad {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 9999;
-      display: none;
-    }
-    .floating-ad-inner {
-      margin: 0 auto 8px;
-      max-width: 360px;
-      border-radius: 999px;
-      border: 1px solid var(--accent);
-      box-shadow: 0 0 24px rgba(34, 197, 94, 0.7);
-      background: radial-gradient(circle at top, #022c22, #020617);
-      padding: 4px 8px 6px;
-      position: relative;
-    }
-    .floating-ad-close {
-      position: absolute;
-      top: -8px;
-      right: -8px;
-      border-radius: 999px;
-      border: none;
-      width: 22px;
-      height: 22px;
-      font-size: 14px;
-      line-height: 22px;
-      text-align: center;
-      cursor: pointer;
-      background: #020617;
-      color: #f9fafb;
-      box-shadow: 0 0 10px rgba(0,0,0,0.6);
-    }
-    @media (max-width: 768px) {
-      .floating-ad { display: block; }
-    }
-  </style>
-
-  <script>
-    // Helper to render an Adsterra zone into a container div
-    function renderAdsterra(containerId, width, height) {
-      var container = document.getElementById(containerId);
-      if (!container) return;
-
-      // Define zone options
-      window.atOptions = {
-        key: 'd9b36f5efcfc1ead7b0130ac6ae63a0c',
-        format: 'iframe',
-        height: height,
-        width: width,
-        params: {}
-      };
-
-      // IMPORTANT: replace this with the exact invoke.js URL from your Adsterra snippet
-      var scriptUrl = '<script type="text/javascript">
-  atOptions = {
-  	'key' : 'd9b36f5efcfc1ead7b0130ac6ae63a0c',
-  	'format' : 'iframe',
-  	'height' : 90,
-  	'width' : 728,
-  	'params' : {}
-  };
-</script>
-<script
-  type="text/javascript"
-  src="//www.highperformanceformat.com/d9b36f5efcfc1ead7b0130ac6ae63a0c/invoke.js"
-></script>';
-
-      var s = document.createElement('script');
-      s.type = 'text/javascript';
-      s.src = scriptUrl;
-      container.appendChild(s);
-    }
-
-    window.addEventListener('load', function () {
-      // Hero ad
-      renderAdsterra('ad1-desktop', 728, 90);
-      renderAdsterra('ad1-mobile', 320, 50);
-
-      // Mid-page ad
-      renderAdsterra('ad2-desktop', 728, 90);
-      renderAdsterra('ad2-mobile', 320, 50);
-
-      // Footer ad
-      renderAdsterra('ad3-desktop', 728, 90);
-      renderAdsterra('ad3-mobile', 320, 50);
-
-      // Floating bottom mobile ad
-      renderAdsterra('ad-floating', 320, 50);
-    });
-  </script>
+</style>
 </head>
+
 <body>
+<div class="page">
 
-  <div class="free-banner">
-    100% Free Miner — No deposit, no unlock fees, no pay-to-earn schemes
+<header>
+  <div class="brand-logo">
+    <img src="LOGO.png" alt="Rio Miner" />
   </div>
+  <h2>RIO MINER</h2>
+</header>
 
-  <div class="page">
+<section class="hero">
+  <h1>Mine crypto <span>directly on Android</span> — totally free.</h1>
+  <p>No deposits, no unlock fees, no cloud mining tricks. Connect to a mining pool and start mining in minutes.</p>
 
-    <header>
-      <div class="brand">
-        <div class="brand-logo">
-          <!-- TODO: replace with your own logo file -->
-          <img src="riominer_logo.png" alt="Rio Miner logo" />
-        </div>
-        <div class="brand-name">
-          <h1>RIO MINER</h1>
-          <span>Android Crypto Mining App</span>
-        </div>
-      </div>
-      <div class="header-tag">
-        REAL MINER • ADVANCED USERS ONLY
-      </div>
-    </header>
+  <a class="btn btn-green"
+     href="https://drive.google.com/file/d/1Plaf0_rY-E0Gzhrk3zF0zYE9nqwPuXTk/view?usp=drive_link">
+     Download Rio Miner APK
+  </a>
 
-    <!-- HERO -->
-    <section class="hero-section">
-      <div class="hero-left">
-        <h2 class="hero-title">
-          Mine crypto <span class="accent">directly on Android</span> — totally free.
-        </h2>
+  <a class="btn btn-outline" href="privacy.html">Privacy Policy</a>
 
-        <p class="hero-subtitle">
-          No deposits, no unlock payments, no cloud mining tricks. Connect to a mining pool, start mining,
-          and watch live hashrate, shares, and wallet updates in real time.
-        </p>
+  <p class="warning">
+    Warning: Mining can cause heat, battery wear, electricity costs, and hardware stress — no guarantee of earnings.
+  </p>
+</section>
 
-        <div class="hero-cta">
-          <a
-            href="https://drive.google.com/file/d/1Plaf0_rY-E0Gzhrk3zF0zYE9nqwPuXTk/view?usp=drive_link"
-            class="btn-primary"
-          >
-            <span class="icon">↓</span>
-            <span>Download Rio Miner APK</span>
-          </a>
 
-          <!-- TODO: replace with your real privacy policy URL -->
-          <a href="YOUR_PRIVACY_POLICY_URL_HERE" class="btn-secondary">Privacy Policy</a>
-        </div>
+<!-- HERO AD -->
+<div class="ad-frame">
+  <div id="ad1"></div>
+</div>
 
-        <!-- Responsive Ad #1 (under download button) -->
-        <div class="ads-container">
-          <div class="ads-frame">
-            <div class="ads-desktop" id="ad1-desktop"></div>
-            <div class="ads-mobile" id="ad1-mobile"></div>
-          </div>
-        </div>
 
-        <p class="hero-risk">
-          <span>Warning:</span> Mining causes heat, battery wear, electricity costs, and device stress.
-          Use at your own risk — no guarantee of earnings.
-        </p>
-      </div>
+<section style="margin-top:24px;">
+  <h2>Key Features</h2>
+  <ul>
+    <li>No deposits or unlock payments</li>
+    <li>Live mining console output</li>
+    <li>Hashrate & share monitoring</li>
+    <li>No cloud mining schemes</li>
+  </ul>
+</section>
 
-      <div class="hero-right">
-        <div style="
-          border-radius:22px;
-          border:1px solid #1e293b;
-          background:#020617;
-          padding:10px;
-          font-family:ui-monospace;
-          font-size:11px;
-          color:#22c55e;
-          min-height:210px;
-          overflow:hidden;
-        ">
-          [21:02] connecting to pool...<br/>
-          [21:03] authorized worker rio_worker01<br/>
-          [21:04] hashrate: 24.83 MH/s<br/>
-          [21:05] share accepted 24.81 MH/s<br/>
-          [21:06] wallet +0.000013 COIN<br/>
-          [21:07] temp: 70°C | power HIGH
-        </div>
-      </div>
-    </section>
 
-    <!-- TRUST -->
-    <section class="trust-block">
-      <h2>Free Miner — No Payments Ever</h2>
-      <p>
-        Rio Miner will never ask for deposits, wallet seeds, private keys, or payment to “unlock hashrate.”
-        Do not send money to anyone claiming to increase your mining earnings.
-      </p>
-    </section>
+<!-- MID AD -->
+<div class="ad-frame">
+  <div id="ad2"></div>
+</div>
 
-    <!-- MAIN CONTENT -->
-    <main>
-      <section>
-        <h2>What is Rio Miner?</h2>
-        <p>
-          Rio Miner is a real crypto mining app for Android devices. It connects to mining pools you configure,
-          uses your device’s CPU/GPU to mine coins, and displays live metrics like hashrate and shares.
-        </p>
-        <p>
-          Mining on mobile hardware is not efficient and may not be profitable. Rio Miner is for users who
-          understand the risks and want to experiment with mobile mining.
-        </p>
-      </section>
 
-      <section>
-        <h2>Key Features</h2>
-        <ul>
-          <li>Live mining console output</li>
-          <li>Wallet balance display</li>
-          <li>No deposits or unlock fees</li>
-          <li>No cloud contracts or investment schemes</li>
-        </ul>
-      </section>
-    </main>
+<section style="margin-top:24px;">
+  <h2>Install on Android</h2>
+  <ul>
+    <li>Open this page in Chrome</li>
+    <li>Download the Rio Miner APK</li>
+    <li>Allow unknown sources if prompted</li>
+    <li>Configure your mining pool and wallet</li>
+  </ul>
+</section>
 
-    <!-- Responsive Ad #2 (mid page) -->
-    <div class="ads-container">
-      <div class="ads-frame">
-        <div class="ads-desktop" id="ad2-desktop"></div>
-        <div class="ads-mobile" id="ad2-mobile"></div>
-      </div>
-    </div>
 
-    <!-- INSTALL -->
-    <section style="margin-top:18px;">
-      <h2>Install on Android</h2>
-      <ul>
-        <li>Open this page in Chrome</li>
-        <li>Download the Rio Miner APK</li>
-        <li>Allow Install from Unknown Sources if prompted</li>
-        <li>Run Rio Miner and configure your mining pool and wallet</li>
-      </ul>
-    </section>
+<!-- FOOTER AD -->
+<div class="ad-frame">
+  <div id="ad3"></div>
+</div>
 
-    <!-- PRIVACY -->
-    <section style="margin-top:18px;">
-      <h2>Privacy & Support</h2>
-      <p>
-        <a href="YOUR_PRIVACY_POLICY_URL_HERE" target="_blank" rel="noopener noreferrer">
-          View Privacy Policy
-        </a>
-      </p>
-      <p>
-        Email support: <a href="mailto:riominerapk@gmail.com">riominerapk@gmail.com</a>
-      </p>
-    </section>
 
-    <!-- Responsive Ad #3 (above footer) -->
-    <div class="ads-container">
-      <div class="ads-frame">
-        <div class="ads-desktop" id="ad3-desktop"></div>
-        <div class="ads-mobile" id="ad3-mobile"></div>
-      </div>
-    </div>
+<section style="margin-top:26px;">
+  <h2>Free Miner — No Payments Ever</h2>
+  <p>Rio Miner will never request deposits, wallet seeds, private keys, or payment to “unlock hashrate.” Do not send money to anyone claiming to increase your mining earnings.</p>
+</section>
 
-    <div class="footer">
-      © <span id="year"></span> Rio Miner — Free crypto mining app.
-    </div>
+
+<footer>
+  © <span id="year"></span> Rio Miner. Use at your own risk — no earnings guaranteed.
+</footer>
+
+</div>
+
+<!-- FLOATING BOTTOM MOBILE AD -->
+<div id="floatingAd">
+  <div id="floatingAdInner">
+    <button id="floatingClose" onclick="document.getElementById('floatingAd').style.display='none';">×</button>
+    <div id="ad-floating"></div>
   </div>
+</div>
 
-  <!-- Floating bottom mobile ad -->
-  <div id="floatingAd" class="floating-ad">
-    <div class="floating-ad-inner">
-      <button class="floating-ad-close" onclick="document.getElementById('floatingAd').style.display='none';">×</button>
-      <div id="ad-floating"></div>
-    </div>
-  </div>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<!-- ADSTERAA AUTO SCRIPT (YOUR KEY + RESPONSIVE) -->
+<script>
+(function () {
+  const KEY = "d9b36f5efcfc1ead7b0130ac6ae63a0c";
+  const INVOKE = "https://www.highperformanceformat.com/d9b36f5efcfc1ead7b0130ac6ae63a0c/invoke.js";
+
+  function loadAd(containerId, w, h) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    window.atOptions = {
+      key: KEY,
+      format: "iframe",
+      height: h,
+      width: w,
+      params: {}
+    };
+
+    const s = document.createElement("script");
+    s.type = "text/javascript";
+    s.src = INVOKE;
+    container.appendChild(s);
+  }
+
+  function renderAll() {
+    const mobile = window.innerWidth <= 768;
+    const bw = mobile ? 320 : 728;
+    const bh = mobile ? 50 : 90;
+
+    loadAd("ad1", bw, bh);
+    loadAd("ad2", bw, bh);
+    loadAd("ad3", bw, bh);
+    loadAd("ad-floating", 320, 50);
+  }
+
+  window.addEventListener("load", renderAll);
+  window.addEventListener("resize", renderAll);
+})();
+</script>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
