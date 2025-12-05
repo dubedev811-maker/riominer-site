@@ -2,116 +2,206 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Rio Miner – Android Crypto Mining App</title>
+  <title>Rio Miner – Turn Your Android into a Crypto Rig</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Rio Miner is an Android crypto mining app. Monitor hashrate, device usage, and mining stats directly from your phone. Read the risks and hardware impact before using." />
+  <meta
+    name="description"
+    content="Rio Miner is a real crypto mining app for Android. Monitor hashrate, device usage, and mining stats with a pro-style dashboard. Read the risks before mining."
+  />
   <style>
     :root {
       --bg: #020617;
-      --bg-alt: #020617;
+      --bg-alt: #020817;
       --accent: #22c55e;
       --accent-soft: #22c55e22;
+      --accent-strong: #16a34a;
       --text: #e5f0ff;
       --muted: #8fa3c2;
-      --danger: #f97373;
+      --danger: #fb7185;
       --border: #1f2937;
-      --radius: 16px;
-      --shadow: 0 24px 50px rgba(0,0,0,0.7);
+      --radius-lg: 18px;
+      --radius-sm: 10px;
+      --shadow-strong: 0 28px 60px rgba(0, 0, 0, 0.75);
     }
-    * { box-sizing: border-box; }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #020617 0, #000 55%);
+      background:
+        radial-gradient(circle at top left, #0f172a 0, #020617 45%, #000 100%);
       color: var(--text);
       line-height: 1.6;
     }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
 
     .page {
-      max-width: 960px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 24px 16px 48px;
+      padding: 24px 16px 56px;
     }
 
     header {
-      text-align: center;
-      padding: 24px 8px 12px;
+      padding: 10px 4px 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
     }
-    .badge {
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: radial-gradient(circle at top, #22c55e, #16a34a, #0f172a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .brand-name {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name h1 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .brand-name span {
+      margin: 0;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .header-tag {
+      font-size: 11px;
+      color: var(--muted);
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.92);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .hero-section {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 2fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 880px) {
+      .hero-section {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-left {
+      padding: 20px 18px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top left, #020617, #020617 45%, #020617 100%);
+      box-shadow: var(--shadow-strong);
+    }
+
+    .hero-eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 4px 10px;
       border-radius: 999px;
       border: 1px solid var(--border);
-      background: rgba(15,23,42,0.9);
+      background: rgba(15, 23, 42, 0.9);
       color: var(--muted);
       font-size: 11px;
-      letter-spacing: .12em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
     }
-    .badge span.dot {
+
+    .hero-eyebrow span.dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
       background: #22c55e;
       box-shadow: 0 0 12px #22c55e;
     }
-    h1 {
-      margin: 16px 0 8px;
-      font-size: clamp(28px, 5vw, 40px);
+
+    .hero-title {
+      margin: 14px 0 4px;
+      font-size: clamp(26px, 5vw, 36px);
+      line-height: 1.2;
     }
-    .subtitle {
-      max-width: 540px;
-      margin: 0 auto;
+
+    .hero-title span.accent {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      margin: 4px 0 12px;
       font-size: 14px;
       color: var(--muted);
+      max-width: 480px;
     }
 
-    .hero {
-      margin: 24px auto 28px;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      background: linear-gradient(135deg, #020617 0%, #020617 40%, #020616 100%);
-      box-shadow: var(--shadow);
-      padding: 18px 16px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.2fr);
-      gap: 16px;
-    }
-    @media (max-width: 780px) {
-      .hero { grid-template-columns: 1fr; }
-    }
-
-    .hero-main {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      justify-content: center;
-    }
     .hero-metrics {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
+      margin: 8px 0 10px;
       font-size: 12px;
-    }
-    .chip {
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(15,23,42,0.95);
-      border: 1px solid var(--border);
       color: var(--muted);
     }
-    .chip strong { color: var(--accent); }
 
-    .cta-row {
+    .metric-chip {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .metric-chip strong {
+      color: var(--accent);
+    }
+
+    .hero-cta {
+      margin-top: 10px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 8px;
     }
+
     .btn-primary {
       display: inline-flex;
       align-items: center;
@@ -124,8 +214,9 @@
       font-size: 14px;
       background: radial-gradient(circle at top left, #22c55e, #16a34a);
       color: #022c22;
-      box-shadow: 0 18px 40px rgba(34,197,94,0.45);
+      box-shadow: 0 22px 48px rgba(34, 197, 94, 0.5);
     }
+
     .btn-primary span.icon {
       width: 18px;
       height: 18px;
@@ -137,55 +228,66 @@
       font-size: 11px;
       background: #bbf7d0;
     }
+
     .btn-secondary {
       border-radius: 999px;
       padding: 10px 18px;
       border: 1px solid var(--border);
-      background: rgba(15,23,42,0.95);
+      background: rgba(15, 23, 42, 0.95);
       color: var(--muted);
       font-size: 13px;
       cursor: pointer;
     }
+
     .btn-primary:hover,
     .btn-secondary:hover {
       transform: translateY(-1px);
     }
-    .risk-note {
+
+    .hero-risk {
+      margin-top: 8px;
       font-size: 12px;
       color: var(--muted);
-      margin-top: 6px;
-      text-align: left;
     }
-    .risk-note span {
+
+    .hero-risk span {
       color: var(--danger);
       font-weight: 600;
     }
 
-    .hero-side {
-      display: flex;
-      justify-content: flex-end;
-    }
-    .phone {
-      border-radius: 30px;
+    .hero-right {
+      border-radius: var(--radius-lg);
       border: 1px solid var(--border);
-      background: radial-gradient(circle at top, #020617, #000);
+      background: radial-gradient(circle at top, #020617 0, #000 80%);
+      padding: 16px 14px 14px;
+      box-shadow: var(--shadow-strong);
+      display: grid;
+      grid-template-rows: auto auto;
+      gap: 10px;
+    }
+
+    .phone {
+      border-radius: 28px;
+      border: 1px solid var(--border);
       padding: 10px 8px 12px;
-      min-width: 220px;
+      background: linear-gradient(145deg, #020617, #000);
+      position: relative;
       max-width: 260px;
       margin: 0 auto;
-      position: relative;
     }
-    .notch {
+
+    .phone-notch {
       position: absolute;
       top: 8px;
       left: 50%;
       transform: translateX(-50%);
-      width: 40%;
+      width: 42%;
       height: 6px;
       border-radius: 999px;
-      background: rgba(15,23,42,0.95);
+      background: rgba(15, 23, 42, 0.95);
     }
-    .screen {
+
+    .phone-screen {
       border-radius: 22px;
       border: 1px solid #1e293b;
       background: #020617;
@@ -194,50 +296,99 @@
       font-size: 11px;
       color: #22c55e;
       position: relative;
+      min-height: 210px;
+      overflow: hidden;
     }
+
     .screen-label {
       position: absolute;
       top: 8px;
       right: 12px;
-      background: rgba(15,23,42,0.9);
-      border-radius: 999px;
       padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid #1e293b;
       font-size: 9px;
-      letter-spacing: .14em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--muted);
-      border: 1px solid #1e293b;
     }
-    .code-line { opacity: .9; }
-    .code-line span.t { color: #64748b; }
-    .code-line span.warn { color: #eab308; }
-    .code-line span.err { color: #f97373; }
+
+    .code-line {
+      opacity: 0.92;
+    }
+
+    .code-line span.t {
+      color: #64748b;
+    }
+
+    .code-line span.warn {
+      color: #eab308;
+    }
+
+    .code-line span.err {
+      color: #fb7185;
+    }
+
+    .mini-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 6px;
+      font-size: 11px;
+    }
+
+    .stat-card {
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.95);
+      padding: 6px 8px;
+    }
+
+    .stat-label {
+      font-size: 10px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .stat-value {
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 2px;
+    }
 
     main {
-      margin-top: 20px;
+      margin-top: 24px;
       display: grid;
       grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
       gap: 18px;
     }
+
     @media (max-width: 880px) {
-      main { grid-template-columns: 1fr; }
+      main {
+        grid-template-columns: 1fr;
+      }
     }
 
     section {
-      border-radius: var(--radius);
+      border-radius: var(--radius-lg);
       border: 1px solid var(--border);
       background: radial-gradient(circle at top left, #020617, #020617 40%, #050816);
       padding: 16px 16px 14px;
       font-size: 14px;
     }
+
     section h2 {
       margin: 0 0 8px;
       font-size: 18px;
     }
+
     section p {
       margin: 0 0 8px;
       color: var(--muted);
     }
+
     ul {
       margin: 4px 0 0;
       padding-left: 18px;
@@ -253,7 +404,40 @@
       border: 1px solid var(--border);
       font-size: 11px;
       color: var(--muted);
-      background: rgba(15,23,42,0.95);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    @media (max-width: 640px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .thumb {
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      background: #020617;
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .footer {
@@ -266,73 +450,114 @@
 </head>
 <body>
   <div class="page">
+    <!-- Top bar -->
     <header>
-      <div class="badge">
-        <span class="dot"></span>
-        <span>Android • Crypto Mining</span>
+      <div class="brand">
+        <div class="brand-logo">
+          <!-- TODO: Replace LOGO_URL_OR_PATH with your logo path, e.g. logo.png -->
+          <img src="LOGO_URL_OR_PATH" alt="Rio Miner logo" />
+        </div>
+        <div class="brand-name">
+          <h1>RIO MINER</h1>
+          <span>Android Crypto Mining App</span>
+        </div>
       </div>
-      <h1>Rio Miner</h1>
-      <p class="subtitle">
-        Rio Miner is a <strong>real crypto mining app</strong> for Android. 
-        Monitor your device hashrate, mining status, and a live wallet balance directly on your phone.
-      </p>
-      <div class="hero">
-        <div class="hero-main">
-          <div class="hero-metrics">
-            <div class="chip"><strong>Real Mining</strong>&nbsp;Uses your device to mine</div>
-            <div class="chip"><strong>Stats</strong>&nbsp;Hashrate, shares, uptime, wallet</div>
-            <div class="chip"><strong>Warning</strong>&nbsp;High battery &amp; CPU usage</div>
-          </div>
-          <div class="cta-row">
-            <!-- TODO: Replace with your actual APK download link -->
-            <a href="https://drive.google.com/file/d/1Plaf0_rY-E0Gzhrk3zF0zYE9nqwPuXTk/view?usp=drive_link" class="btn-primary">
-              <span class="icon">↓</span>
-              <span>Download APK (Android)</span>
-            </a>
-            <!-- TODO: Replace with your privacy policy URL -->
-            <a href="https://your-privacy-policy-url-here" class="btn-secondary">Privacy Policy</a>
-          </div>
-          <p class="risk-note">
-            <span>Important:</span> This app performs <strong>real mining</strong> on your device. 
-            Mining can increase battery drain, heat, hardware wear, and electricity/data usage. 
-            There is <strong>no guarantee of profit</strong>.
-          </p>
-        </div>
-        <div class="hero-side">
-          <div class="phone">
-            <div class="notch"></div>
-            <div class="screen">
-              <div class="screen-label">MINER STATUS</div>
-              <div class="code-line"><span class="t">[21:03:17]</span> device: CPU "Snapdragon" • GPU online</div>
-              <div class="code-line"><span class="t">[21:03:18]</span> net: connecting to pool...</div>
-              <div class="code-line"><span class="t">[21:03:19]</span> net: authorized as worker <span class="warn">rio_worker01</span></div>
-              <div class="code-line"><span class="t">[21:03:27]</span> hashrate: 24.83 MH/s (avg)</div>
-              <div class="code-line"><span class="t">[21:03:35]</span> share: <span class="warn">accepted</span> • 24.81 MH @ 43 ms</div>
-              <div class="code-line"><span class="t">[21:03:55]</span> share: <span class="warn">accepted</span> • 24.77 MH @ 41 ms</div>
-              <div class="code-line"><span class="t">[21:04:12]</span> wallet: +0.000013 COIN • total 0.000251 COIN</div>
-              <div class="code-line"><span class="t">[21:04:40]</span> temp: 70°C • fan: 82% • power mode: HIGH</div>
-              <div class="code-line"><span class="t">[21:05:02]</span> uptime: 00:01:45</div>
-            </div>
-          </div>
-        </div>
+      <div class="header-tag">
+        REAL MINER • ADVANCED USERS ONLY
       </div>
     </header>
 
+    <!-- Hero -->
+    <section class="hero-section">
+      <div class="hero-left">
+        <div class="hero-eyebrow">
+          <span class="dot"></span>
+          <span>Turn your phone into a mini rig</span>
+        </div>
+        <h2 class="hero-title">
+          Tap into <span class="accent">real crypto mining</span> from your pocket.
+        </h2>
+        <p class="hero-subtitle">
+          Rio Miner connects your Android device to a mining pool, tracks hashrate, shares,
+          and wallet balance in a pro-style console UI. Built for people who understand the
+          risks and want to experiment with mining on mobile.
+        </p>
+        <div class="hero-metrics">
+          <div class="metric-chip"><strong>Real Mining</strong>&nbsp;uses your CPU/GPU</div>
+          <div class="metric-chip"><strong>Live Stats</strong>&nbsp;hashrate, shares, uptime</div>
+          <div class="metric-chip"><strong>Risk</strong>&nbsp;high battery &amp; heat</div>
+        </div>
+        <div class="hero-cta">
+          <!-- APK DOWNLOAD BUTTON -->
+          <a
+            href="https://drive.google.com/file/d/1Plaf0_rY-E0Gzhrk3zF0zYE9nqwPuXTk/view?usp=drive_link"
+            class="btn-primary"
+          >
+            <span class="icon">↓</span>
+            <span>Download Rio Miner APK</span>
+          </a>
+          <!-- TODO: replace with your actual privacy policy URL -->
+          <a href="YOUR_PRIVACY_POLICY_URL_HERE" class="btn-secondary">Privacy Policy</a>
+        </div>
+        <p class="hero-risk">
+          <span>Warning:</span> Rio Miner performs real mining on your device. Mining can cause
+          high battery drain, heat, hardware wear, and extra electricity/data costs.
+          <strong>There is no guarantee of profit.</strong> Use at your own risk.
+        </p>
+      </div>
+
+      <div class="hero-right">
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="screen-label">MINER CONSOLE</div>
+            <div class="code-line"><span class="t">[21:03:17]</span> device: CPU "Snapdragon" • GPU online</div>
+            <div class="code-line"><span class="t">[21:03:18]</span> net: connecting to pool...</div>
+            <div class="code-line"><span class="t">[21:03:19]</span> net: authorized as worker <span class="warn">rio_worker01</span></div>
+            <div class="code-line"><span class="t">[21:03:27]</span> hashrate: 24.83 MH/s (avg)</div>
+            <div class="code-line"><span class="t">[21:03:35]</span> share: <span class="warn">accepted</span> • 24.81 MH @ 43 ms</div>
+            <div class="code-line"><span class="t">[21:03:55]</span> share: <span class="warn">accepted</span> • 24.77 MH @ 41 ms</div>
+            <div class="code-line"><span class="t">[21:04:12]</span> wallet: +0.000013 COIN • total 0.000251 COIN</div>
+            <div class="code-line"><span class="t">[21:04:40]</span> temp: 70°C • fan: 82% • power: HIGH</div>
+            <div class="code-line"><span class="t">[21:05:22]</span> uptime: 00:02:05</div>
+            <div class="code-line"><span class="t">[21:06:11]</span> share: <span class="err">rejected</span> • stale job</div>
+          </div>
+        </div>
+
+        <div class="mini-stats">
+          <div class="stat-card">
+            <div class="stat-label">Current Hashrate</div>
+            <div class="stat-value">24.8 MH/s</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Accepted Shares</div>
+            <div class="stat-value">128</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Session Uptime</div>
+            <div class="stat-value">00:34:19</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main content -->
     <main>
       <section>
-        <h2>About Rio Miner</h2>
+        <h2>What is Rio Miner?</h2>
         <p>
-          Rio Miner is designed for users who understand the risks of crypto mining and want to run 
-          a <strong>real miner</strong> on their Android device. The app connects to a mining pool, 
-          uses your device’s CPU/GPU, and reports hashrate, shares, and an on-chain wallet balance.
+          Rio Miner is a <strong>real crypto mining app</strong> for Android devices. It connects to mining pools
+          you configure, uses your device's CPU/GPU to mine, and displays live metrics like hashrate,
+          shares, and uptime in a clean, miner-style dashboard.
         </p>
         <p>
-          Mining on a phone is <strong>not efficient</strong> and may not be profitable. 
-          This app is intended for experimentation, hobby use, and demonstration only.
+          Mining on mobile hardware is generally <strong>not efficient</strong> and may not be profitable.
+          Rio Miner is intended for people who understand the tradeoffs and want to experiment, learn,
+          or monitor small-scale mining from their phone.
         </p>
         <div>
           <span class="tag">Real Mining</span>
-          <span class="tag">High Resource Usage</span>
+          <span class="tag">Advanced Users</span>
           <span class="tag">No Profit Guarantee</span>
         </div>
       </section>
@@ -340,68 +565,94 @@
       <section>
         <h2>Key Features</h2>
         <ul>
-          <li>Connects to a mining pool (you configure your pool/wallet details in the app)</li>
-          <li>Displays hashrate, accepted shares, rejected shares, and uptime</li>
-          <li>Shows on-chain wallet balance for the configured wallet address</li>
-          <li>Mining status logs similar to desktop miner consoles</li>
-          <li>Optional ad-supported features (e.g., UI themes, non-mining extras)</li>
+          <li>Connect to mining pools you configure (pool URL, wallet address, worker name).</li>
+          <li>Live stats: hashrate, accepted/rejected shares, session uptime, and temperature.</li>
+          <li>Wallet balance display for your mining wallet (if supported by your setup).</li>
+          <li>Miner-console style log output for every share and connection event.</li>
+          <li>Optional ads to support development (no pay-to-mine or deposits).</li>
         </ul>
-      </section>
-
-      <section>
-        <h2>Risks &amp; Hardware Impact</h2>
-        <p>
-          Mining is a demanding workload. Before you use Rio Miner, please read and understand:
-        </p>
-        <ul>
-          <li>Mining can significantly increase <strong>battery drain</strong> and device temperature.</li>
-          <li>Long sessions may cause <strong>hardware wear</strong> over time.</li>
-          <li>Mining uses CPU/GPU resources and may slow down other apps.</li>
-          <li>Mining can use your <strong>mobile data or Wi-Fi</strong>; charges may apply from your ISP.</li>
-          <li>There is <strong>no guarantee of any earnings</strong> or profitability.</li>
-        </ul>
-        <p>
-          By downloading and using the app, you accept full responsibility for any costs or damage 
-          related to device usage, electricity, or data.
-        </p>
-      </section>
-
-      <section>
-        <h2>Installation (Android)</h2>
-        <p>To install the APK:</p>
-        <ul>
-          <li>Open this page in Chrome on your Android device.</li>
-          <li>Tap the <strong>Download APK</strong> button at the top.</li>
-          <li>After download, tap the file from the notification or your Downloads app.</li>
-          <li>Allow Chrome (or your browser) to install unknown apps if asked.</li>
-          <li>Tap <strong>Install</strong>, then launch <strong>Rio Miner</strong>.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Privacy &amp; Contact</h2>
-        <p>
-          For details on what data may be collected by the app and its advertising / analytics partners, 
-          read our full privacy policy:
-        </p>
-        <p>
-          <!-- TODO: Replace with your privacy policy link -->
-          <a href="https://your-privacy-policy-url-here" target="_blank" rel="noopener noreferrer">
-            View Privacy Policy
-          </a>
-        </p>
-        <p>
-          For support, feedback, or takedown requests, contact us:
-        </p>
-        <p>
-          <!-- TODO: Replace with your real support email -->
-          <strong>Email:</strong> support@yourdomain.com
-        </p>
       </section>
     </main>
 
+    <!-- Screenshots & How it looks -->
+    <section style="margin-top:18px;">
+      <h2>How Rio Miner Looks</h2>
+      <p>
+        A quick preview of the main screens you’ll see inside the app:
+      </p>
+      <div class="grid">
+        <div class="thumb">
+          <!-- TODO: Replace SCREENSHOT1_URL with a real screenshot path or URL -->
+          <img src="SCREENSHOT1_URL" alt="Rio Miner dashboard screenshot" />
+        </div>
+        <div class="thumb">
+          <!-- TODO: Replace SCREENSHOT2_URL with a real screenshot path or URL -->
+          <img src="SCREENSHOT2_URL" alt="Mining log and shares screen" />
+        </div>
+        <div class="thumb">
+          <!-- TODO: Replace SCREENSHOT3_URL with a real screenshot path or URL -->
+          <img src="SCREENSHOT3_URL" alt="Wallet and stats screen" />
+        </div>
+        <div class="thumb">
+          <!-- TODO: Replace SCREENSHOT4_URL with a real screenshot path or URL -->
+          <img src="SCREENSHOT4_URL" alt="Settings and pool configuration screen" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Risks & Install -->
+    <section style="margin-top:18px;">
+      <h2>Risks & Hardware Impact</h2>
+      <p>
+        Mining is a heavy workload. Before using Rio Miner, read these points carefully:
+      </p>
+      <ul>
+        <li>Mining can significantly increase <strong>battery drain</strong> and device temperature.</li>
+        <li>Long sessions may cause <strong>hardware wear</strong> over time.</li>
+        <li>Mining uses your CPU/GPU and can slow down other apps.</li>
+        <li>Mining uses your <strong>mobile data or Wi-Fi</strong>; your ISP may charge you.</li>
+        <li>There is <strong>no guarantee of any earnings or profit</strong>.</li>
+      </ul>
+      <p>
+        By downloading and using Rio Miner, you accept full responsibility for any device, electricity,
+        or data costs, and for complying with any local laws/regulations about mining.
+      </p>
+    </section>
+
+    <section style="margin-top:18px;">
+      <h2>Install on Android</h2>
+      <p>To install the APK on your device:</p>
+      <ul>
+        <li>Open this page in Chrome on your Android phone.</li>
+        <li>Tap the <strong>Download Rio Miner APK</strong> button at the top.</li>
+        <li>Once downloaded, open the file from your notification or Downloads app.</li>
+        <li>Allow Chrome (or your browser) to install unknown apps if prompted.</li>
+        <li>Tap <strong>Install</strong>, then open <strong>Rio Miner</strong> from your app drawer.</li>
+      </ul>
+    </section>
+
+    <!-- Privacy & Contact -->
+    <section style="margin-top:18px;">
+      <h2>Privacy & Support</h2>
+      <p>
+        For full details about data and ads used in the app, please check the privacy policy:
+      </p>
+      <p>
+        <!-- TODO: replace with your real privacy policy URL -->
+        <a href="YOUR_PRIVACY_POLICY_URL_HERE" target="_blank" rel="noopener noreferrer">
+          View Privacy Policy
+        </a>
+      </p>
+      <p>
+        For support, bug reports, or removal requests, contact:
+      </p>
+      <p>
+        <strong>Email:</strong> <a href="mailto:riominerapk@gmail.com">riominerapk@gmail.com</a>
+      </p>
+    </section>
+
     <div class="footer">
-      © <span id="year"></span> Rio Miner. This app performs real mining at your own risk and responsibility.
+      © <span id="year"></span> Rio Miner. Real mining app – use at your own risk.
     </div>
   </div>
 
