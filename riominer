@@ -48,10 +48,9 @@
     .page {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 24px 16px 56px;
+      padding: 24px 16px 80px;
     }
 
-    /* FREE MINER BANNER */
     .free-banner {
       background:#042014;
       color:#9ef8c7;
@@ -145,28 +144,6 @@
       box-shadow: var(--shadow-strong);
     }
 
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(15, 23, 42, 0.9);
-      color: var(--muted);
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .hero-eyebrow span.dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #22c55e;
-      box-shadow: 0 0 12px #22c55e;
-    }
-
     .hero-title {
       margin: 14px 0 4px;
       font-size: clamp(26px, 5vw, 36px);
@@ -182,26 +159,6 @@
       font-size: 14px;
       color: var(--muted);
       max-width: 480px;
-    }
-
-    .hero-metrics {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 8px 0 10px;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .metric-chip {
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(15, 23, 42, 0.95);
-    }
-
-    .metric-chip strong {
-      color: var(--accent);
     }
 
     .hero-cta {
@@ -259,6 +216,14 @@
       font-weight: 600;
     }
 
+    .hero-right {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top, #020617 0, #000 80%);
+      padding: 16px 14px 14px;
+      box-shadow: var(--shadow-strong);
+    }
+
     .trust-block {
       border-radius:18px;
       border:1px solid #1f2937;
@@ -309,6 +274,85 @@
       font-size: 12px;
       color: var(--muted);
     }
+
+    /* AD CONTAINERS (neon styled) */
+    .ads-container {
+      margin-top: 18px;
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .ads-frame {
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      box-shadow: 0 0 18px rgba(34, 197, 94, 0.45);
+      padding: 4px 6px;
+      background: radial-gradient(circle at top, #022c22, #020617);
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .ads-desktop {
+      display: block;
+    }
+
+    .ads-mobile {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .ads-desktop {
+        display: none;
+      }
+      .ads-mobile {
+        display: block;
+      }
+    }
+
+    /* FLOATING BOTTOM MOBILE AD */
+    .floating-ad {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9999;
+      display: none; /* only show on mobile via media query */
+    }
+
+    .floating-ad-inner {
+      margin: 0 auto 8px;
+      max-width: 360px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      box-shadow: 0 0 24px rgba(34, 197, 94, 0.7);
+      background: radial-gradient(circle at top, #022c22, #020617);
+      padding: 4px 8px 6px;
+      position: relative;
+    }
+
+    .floating-ad-close {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      border-radius: 999px;
+      border: none;
+      width: 22px;
+      height: 22px;
+      font-size: 14px;
+      line-height: 22px;
+      text-align: center;
+      cursor: pointer;
+      background: #020617;
+      color: #f9fafb;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    }
+
+    @media (max-width: 768px) {
+      .floating-ad {
+        display: block;
+      }
+    }
   </style>
 </head>
 <body>
@@ -324,8 +368,9 @@
     <header>
       <div class="brand">
         <div class="brand-logo">
-          <!-- TODO: Replace LOGO_URL_OR_PATH -->
-<img src="riominer_logo.png" alt="Rio Miner logo" />        </div>
+          <!-- TODO: replace with your own logo file -->
+          <img src="LOGO_URL_OR_PATH" alt="Rio Miner logo" />
+        </div>
         <div class="brand-name">
           <h1>RIO MINER</h1>
           <span>Android Crypto Mining App</span>
@@ -361,6 +406,38 @@
           <a href="YOUR_PRIVACY_POLICY_URL_HERE" class="btn-secondary">Privacy Policy</a>
         </div>
 
+        <!-- RESPONSIVE AD #1: Under Download Button -->
+        <div class="ads-container">
+          <div class="ads-frame">
+            <!-- Desktop 728x90 -->
+            <div class="ads-desktop">
+              <script type="text/javascript">
+                atOptions = {
+                  'key' : '71ece280e81f6067a42502b53a9dbc85',
+                  'format' : 'iframe',
+                  'height' : 90,
+                  'width' : 728,
+                  'params' : {}
+                };
+                document.write('<scr' + 'ipt type="text/javascript" src="https://www.highperformanceformat.com/invoke.js"></scr' + 'ipt>');
+              </script>
+            </div>
+            <!-- Mobile 320x50 -->
+            <div class="ads-mobile">
+              <script type="text/javascript">
+                atOptions = {
+                  'key' : '71ece280e81f6067a42502b53a9dbc85',
+                  'format' : 'iframe',
+                  'height' : 50,
+                  'width' : 320,
+                  'params' : {}
+                };
+                document.write('<scr' + 'ipt type="text/javascript" src="https://www.highperformanceformat.com/invoke.js"></scr' + 'ipt>');
+              </script>
+            </div>
+          </div>
+        </div>
+
         <p class="hero-risk">
           <span>Warning:</span> Mining causes heat, battery wear, electricity costs, and device stress.
           Use at your own risk — no guarantee of earnings.
@@ -368,7 +445,6 @@
       </div>
 
       <div class="hero-right">
-        <!-- Console mock -->
         <div style="
           border-radius:22px;
           border:1px solid #1e293b;
@@ -380,12 +456,12 @@
           min-height:210px;
           overflow:hidden;
         ">
-          [21:02] connecting to pool...  
-          [21:03] authorized worker rio_worker01  
-          [21:04] hashrate: 24.83 MH/s  
-          [21:05] share accepted 24.81 MH/s  
-          [21:06] wallet +0.000013 COIN  
-          [21:07] temp: 70°C | power HIGH  
+          [21:02] connecting to pool...<br/>
+          [21:03] authorized worker rio_worker01<br/>
+          [21:04] hashrate: 24.83 MH/s<br/>
+          [21:05] share accepted 24.81 MH/s<br/>
+          [21:06] wallet +0.000013 COIN<br/>
+          [21:07] temp: 70°C | power HIGH
         </div>
       </div>
     </section>
@@ -395,52 +471,83 @@
       <h2>Free Miner — No Payments Ever</h2>
       <p>
         Rio Miner will never ask for deposits, wallet seeds, private keys, or payment to “unlock hashrate.”
-        Do not send money to anyone claiming to increase your mining earnings. If someone contacts you
-        asking for crypto related to Rio Miner, assume it is a scam.
+        Do not send money to anyone claiming to increase your mining earnings.
       </p>
     </section>
 
-    <!-- WHAT IS RIO MINER -->
+    <!-- MAIN CONTENT -->
     <main>
       <section>
         <h2>What is Rio Miner?</h2>
         <p>
           Rio Miner is a real crypto mining app for Android devices. It connects to mining pools you configure,
-          uses your device’s CPU/GPU to mine coins, and displays live metrics like hashrate, shares, and uptime.
+          uses your device’s CPU/GPU to mine coins, and displays live metrics like hashrate and shares.
         </p>
         <p>
-          There are no paid upgrades, subscriptions, or investment plans — mining performance depends only on
-          your hardware and network.
+          Mining on mobile hardware is not efficient and may not be profitable. Rio Miner is for users who
+          understand the risks and want to experiment with mobile mining.
         </p>
       </section>
 
       <section>
         <h2>Key Features</h2>
         <ul>
-          <li>Live mining console with real pool output</li>
+          <li>Live mining console output</li>
           <li>Wallet balance display</li>
-          <li>Accepted/rejected shares, uptime tracking</li>
-          <li>No deposits, no unlock fees, no cloud mining scams</li>
+          <li>No deposits or unlock fees</li>
+          <li>No cloud contracts or investment schemes</li>
         </ul>
       </section>
     </main>
 
-    <!-- INSTALL -->
+    <!-- RESPONSIVE AD #2: Mid Page -->
+    <div class="ads-container">
+      <div class="ads-frame">
+        <!-- Desktop -->
+        <div class="ads-desktop">
+          <script type="text/javascript">
+            atOptions = {
+              'key' : '71ece280e81f6067a42502b53a9dbc85',
+              'format' : 'iframe',
+              'height' : 90,
+              'width' : 728,
+              'params' : {}
+            };
+            document.write('<scr' + 'ipt type="text/javascript" src="https://www.highperformanceformat.com/invoke.js"></scr' + 'ipt>');
+          </script>
+        </div>
+        <!-- Mobile -->
+        <div class="ads-mobile">
+          <script type="text/javascript">
+            atOptions = {
+              'key' : '71ece280e81f6067a42502b53a9dbc85',
+              'format' : 'iframe',
+              'height' : 50,
+              'width' : 320,
+              'params' : {}
+            };
+            document.write('<scr' + 'ipt type="text/javascript" src="https://www.highperformanceformat.com/invoke.js"></scr' + 'ipt>');
+          </script>
+        </div>
+      </div>
+    </div>
+
+    <!-- INSTALL SECTION -->
     <section style="margin-top:18px;">
       <h2>Install on Android</h2>
       <ul>
         <li>Open this page in Chrome</li>
-        <li>Download APK</li>
-        <li>Allow Install from Unknown Sources</li>
-        <li>Run Rio Miner and configure your pool</li>
+        <li>Download the Rio Miner APK</li>
+        <li>Allow Install from Unknown Sources if prompted</li>
+        <li>Run Rio Miner and configure your mining pool and wallet</li>
       </ul>
     </section>
 
-    <!-- PRIVACY + CONTACT -->
+    <!-- PRIVACY & SUPPORT -->
     <section style="margin-top:18px;">
       <h2>Privacy & Support</h2>
       <p>
-        <!-- TODO: replace with your privacy policy URL -->
+        <!-- TODO: replace with your real privacy policy URL -->
         <a href="YOUR_PRIVACY_POLICY_URL_HERE" target="_blank" rel="noopener noreferrer">
           View Privacy Policy
         </a>
@@ -450,12 +557,63 @@
       </p>
     </section>
 
+    <!-- RESPONSIVE AD #3: Above Footer -->
+    <div class="ads-container">
+      <div class="ads-frame">
+        <!-- Desktop -->
+        <div class="ads-desktop">
+          <script type="text/javascript">
+            atOptions = {
+              'key' : '71ece280e81f6067a42502b53a9dbc85',
+              'format' : 'iframe',
+              'height' : 90,
+              'width' : 728,
+              'params' : {}
+            };
+            document.write('<scr' + 'ipt type="text/javascript" src="https://www.highperformanceformat.com/invoke.js"></scr' + 'ipt>');
+          </script>
+        </div>
+        <!-- Mobile -->
+        <div class="ads-mobile">
+          <script type="text/javascript">
+            atOptions = {
+              'key' : '71ece280e81f6067a42502b53a9dbc85',
+              'format' : 'iframe',
+              'height' : 50,
+              'width' : 320,
+              'params' : {}
+            };
+            document.write('<scr' + 'ipt type="text/javascript" src="https://www.highperformanceformat.com/invoke.js"></scr' + 'ipt>');
+          </script>
+        </div>
+      </div>
+    </div>
+
     <div class="footer">
       © <span id="year"></span> Rio Miner — Free crypto mining app.
     </div>
   </div>
 
+  <!-- FLOATING MOBILE AD (BOTTOM) -->
+  <div id="floatingAd" class="floating-ad">
+    <div class="floating-ad-inner">
+      <button class="floating-ad-close" onclick="document.getElementById('floatingAd').style.display='none';">×</button>
+      <!-- Mobile 320x50 floating ad -->
+      <script type="text/javascript">
+        atOptions = {
+          'key' : '71ece280e81f6067a42502b53a9dbc85',
+          'format' : 'iframe',
+          'height' : 50,
+          'width' : 320,
+          'params' : {}
+        };
+        document.write('<scr' + 'ipt type="text/javascript" src="https://www.highperformanceformat.com/invoke.js"></scr' + 'ipt>');
+      </script>
+    </div>
+  </div>
+
   <script>
+    // Footer year
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
