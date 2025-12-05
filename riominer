@@ -324,9 +324,8 @@
     <header>
       <div class="brand">
         <div class="brand-logo">
-         <img src="riominer_logo.png" alt="Rio Miner logo" />
-          <img src="LOGO_URL_OR_PATH" alt="Rio Miner logo" />
-        </div>
+          <!-- TODO: Replace LOGO_URL_OR_PATH -->
+<img src="riominer_logo.png" alt="Rio Miner logo" />        </div>
         <div class="brand-name">
           <h1>RIO MINER</h1>
           <span>Android Crypto Mining App</span>
