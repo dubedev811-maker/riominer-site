@@ -29,35 +29,36 @@
       background: radial-gradient(circle at top left, #0f172a 0, #020617 45%, #000 100%);
       color: var(--text);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
     .page {
-      max-width: 480px;
+      max-width: 420px;   /* Android-friendly */
       margin: 0 auto;
-      padding: 16px 12px 90px;
+      padding: 16px 14px 96px;
     }
 
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
+      gap: 12px;
       margin-bottom: 12px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
 
     .brand-logo {
-      width: 32px;
-      height: 32px;
-      border-radius: 10px;
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
       background: radial-gradient(circle at top, #22c55e, #16a34a, #0f172a);
       display: flex;
       align-items: center;
@@ -74,19 +75,20 @@
     }
 
     .brand span {
-      font-size: 13px;
+      font-size: 14px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
+      font-weight: 600;
     }
 
     .header-tag {
-      font-size: 9px;
+      font-size: 10px;
       color: var(--muted);
-      padding: 3px 8px;
+      padding: 4px 10px;
       border-radius: 999px;
       border: 1px solid var(--border);
       background: rgba(15, 23, 42, 0.92);
-      letter-spacing: 0.14em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       text-align: center;
     }
@@ -95,31 +97,31 @@
       border-radius: var(--radius-lg);
       border: 1px solid var(--border);
       background: radial-gradient(circle at top left, #020617, #020617 40%, #050816);
-      padding: 14px 12px 14px;
-      box-shadow: 0 18px 46px rgba(0,0,0,0.75);
-      font-size: 13px;
+      padding: 16px 14px 16px;
+      box-shadow: 0 24px 54px rgba(0,0,0,0.75);
+      margin-bottom: 14px;
     }
 
     h1 {
-      margin: 0 0 6px;
-      font-size: 18px;
+      margin: 0 0 8px;
+      font-size: 20px;
     }
 
     .meta {
-      font-size: 12px;
+      font-size: 13px;
       color: var(--muted);
-      margin-bottom: 8px;
-    }
-
-    .warning {
-      font-size: 12px;
-      color: var(--danger);
       margin-bottom: 10px;
     }
 
-    .timer-text {
+    .warning {
       font-size: 13px;
-      margin: 6px 0 10px;
+      color: var(--danger);
+      margin-bottom: 12px;
+    }
+
+    .timer-text {
+      font-size: 14px;
+      margin: 8px 0 10px;
       color: var(--muted);
     }
 
@@ -130,15 +132,15 @@
 
     .download-btn {
       display: inline-block;
-      padding: 9px 18px;
+      padding: 10px 20px;
       border-radius: 999px;
       border: none;
       cursor: pointer;
       font-weight: 600;
-      font-size: 13px;
+      font-size: 14px;
       background: radial-gradient(circle at top left, #22c55e, #16a34a);
       color: #022c22;
-      box-shadow: 0 16px 38px rgba(34, 197, 94, 0.5);
+      box-shadow: 0 18px 40px rgba(34, 197, 94, 0.45);
       margin-top: 4px;
     }
 
@@ -149,19 +151,19 @@
 
     .note {
       margin-top: 8px;
-      font-size: 11px;
+      font-size: 12px;
       color: var(--muted);
     }
 
     .list {
-      font-size: 12px;
+      font-size: 13px;
       color: var(--muted);
-      margin-top: 10px;
+      margin-top: 12px;
     }
 
     .list ul {
-      margin: 4px 0 0;
       padding-left: 18px;
+      margin: 6px 0 0;
     }
 
     .ads-container {
@@ -174,17 +176,24 @@
       border-radius: 999px;
       border: 1px solid var(--accent-soft);
       background: radial-gradient(circle at top, #022c22, #020617);
-      box-shadow: 0 0 14px rgba(34, 197, 94, 0.45);
-      padding: 4px 4px;
+      box-shadow: 0 0 18px rgba(34, 197, 94, 0.45);
+      padding: 4px 6px;
       max-width: 100%;
       overflow: hidden;
       min-height: 54px;
     }
 
+    .ads-label {
+      font-size: 10px;
+      color: var(--muted);
+      margin-bottom: 2px;
+      text-align: left;
+    }
+
     .footer {
       margin-top: 18px;
       text-align: center;
-      font-size: 11px;
+      font-size: 12px;
       color: var(--muted);
     }
 
@@ -196,13 +205,14 @@
       bottom: 0;
       z-index: 9999;
       display: none;
+      padding: 0 10px 6px;
     }
     #floatingAdInner {
-      margin: 0 auto 6px;
-      max-width: 360px;
+      margin: 0 auto;
+      max-width: 420px;
       border-radius: 999px;
       border: 1px solid var(--accent-soft);
-      box-shadow: 0 0 18px rgba(34, 197, 94, 0.7);
+      box-shadow: 0 0 24px rgba(34, 197, 94, 0.7);
       background: radial-gradient(circle at top, #022c22, #020617);
       padding: 4px 8px 6px;
       position: relative;
@@ -213,15 +223,15 @@
       right: -8px;
       border-radius: 999px;
       border: none;
-      width: 20px;
-      height: 20px;
-      font-size: 12px;
-      line-height: 20px;
+      width: 22px;
+      height: 22px;
+      font-size: 14px;
+      line-height: 22px;
       text-align: center;
       cursor: pointer;
       background: #020617;
       color: #f9fafb;
-      box-shadow: 0 0 8px rgba(0,0,0,0.6);
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
     }
 
     @media (max-width: 768px) {
@@ -229,66 +239,44 @@
     }
   </style>
 
-  <!-- Adsterra loader using same 4 zones -->
+  <!-- Multi-zone Adsterra loader -->
   <script>
     (function () {
       const ZONES = {
-        rect300: { // 300x250
-          key: "0cceb98217b86ee1bbfac0774d2e5784",
-          invoke: "https://www.highperformanceformat.com/0cceb98217b86ee1bbfac0774d2e5784/invoke.js"
-        },
-        banner728: { // 728x90
-          key: "d9b36f5efcfc1ead7b0130ac6ae63a0c",
-          invoke: "https://www.highperformanceformat.com/d9b36f5efcfc1ead7b0130ac6ae63a0c/invoke.js"
-        },
-        banner468: { // 468x60
-          key: "db01d80ef2e19e4eb9efe786face9565",
-          invoke: "https://www.highperformanceformat.com/db01d80ef2e19e4eb9efe786face9565/invoke.js"
-        },
-        banner320: { // 320x50
-          key: "2b6e1e6f18154c0f8fdadc6ab7b7fcad",
-          invoke: "https://www.highperformanceformat.com/2b6e1e6f18154c0f8fdadc6ab7b7fcad/invoke.js"
-        }
+        top:    { key: "d9b36f5efcfc1ead7b0130ac6ae63a0c", w: 728, h: 90,  invoke: "//www.highperformanceformat.com/d9b36f5efcfc1ead7b0130ac6ae63a0c/invoke.js" },
+        middle: { key: "0cceb98217b86ee1bbfac0774d2e5784", w: 300, h: 250, invoke: "//www.highperformanceformat.com/0cceb98217b86ee1bbfac0774d2e5784/invoke.js" },
+        bottom: { key: "db01d80ef2e19e4eb9efe786face9565", w: 468, h: 60,  invoke: "//www.highperformanceformat.com/db01d80ef2e19e4eb9efe786face9565/invoke.js" },
+        float:  { key: "2b6e1e6f18154c0f8fdadc6ab7b7fcad", w: 320, h: 50,  invoke: "//www.highperformanceformat.com/2b6e1e6f18154c0f8fdadc6ab7b7fcad/invoke.js" }
       };
 
-      function loadAd(containerId, zone, w, h) {
+      function loadZone(containerId, zone) {
         const container = document.getElementById(containerId);
-        if (!container || !zone || !zone.key || !zone.invoke) return;
-
+        if (!container || !zone) return;
         container.innerHTML = "";
 
         window.atOptions = {
           key: zone.key,
           format: "iframe",
-          height: h,
-          width: w,
+          height: zone.h,
+          width: zone.w,
           params: {}
         };
 
         const s = document.createElement("script");
         s.type = "text/javascript";
+        s.async = true;
         s.src = zone.invoke;
         container.appendChild(s);
       }
 
       function renderAllAds() {
-        const mobile = window.innerWidth <= 768;
-
-        if (mobile) {
-          loadAd("ad-top", ZONES.banner728, 320, 50);
-          loadAd("ad-middle", ZONES.rect300, 300, 250);
-          loadAd("ad-bottom", ZONES.banner468, 320, 50);
-          loadAd("ad-floating", ZONES.banner320, 320, 50);
-        } else {
-          loadAd("ad-top", ZONES.banner728, 728, 90);
-          loadAd("ad-middle", ZONES.rect300, 300, 250);
-          loadAd("ad-bottom", ZONES.banner468, 468, 60);
-          loadAd("ad-floating", ZONES.banner320, 320, 50);
-        }
+        loadZone("ad-top", ZONES.top);
+        loadZone("ad-middle", ZONES.middle);
+        loadZone("ad-bottom", ZONES.bottom);
+        loadZone("ad-floating", ZONES.float);
       }
 
       window.addEventListener("load", renderAllAds);
-      window.addEventListener("resize", renderAllAds);
     })();
   </script>
 </head>
@@ -309,6 +297,7 @@
     <!-- TOP AD -->
     <div class="ads-container">
       <div class="ads-frame">
+        <div class="ads-label">Advertisement</div>
         <div id="ad-top"></div>
       </div>
     </div>
@@ -316,12 +305,12 @@
     <div class="card">
       <h1>Download Rio Miner APK</h1>
       <div class="meta">
-        File: <strong>RioMiner.apk</strong> • Approx size: 18–25 MB • Platform: Android  
-        <br/>Version: 1.0.0 • Release: 2025
+        File: <strong>RioMiner.apk</strong> • Approx size: 30–50 MB • Platform: Android <br/>
+        Version: 1.0.1 • Release: 2025
       </div>
 
       <div class="warning">
-        ⚠️ Real crypto mining app – this is not a game or cloud mining. Your device will perform actual mining work.
+        ⚠ Real crypto mining app – this is not a game or cloud mining. Your device will perform actual mining work.
       </div>
 
       <p class="timer-text">
@@ -333,8 +322,16 @@
       </button>
 
       <p class="note">
-        When the timer finishes, the button will unlock. Tap it to start the APK download from our official Google Drive link.
+        When the timer finishes, the button will unlock. Tap it to start the APK download from our official server (Google Drive).
       </p>
+
+      <!-- High-intent ad below button -->
+      <div class="ads-container">
+        <div class="ads-frame">
+          <div class="ads-label">Advertisement</div>
+          <div id="ad-middle"></div>
+        </div>
+      </div>
 
       <div class="list">
         <strong>Important before downloading:</strong>
@@ -347,28 +344,20 @@
       </div>
     </div>
 
-    <!-- MIDDLE AD -->
-    <div class="ads-container">
-      <div class="ads-frame">
-        <div id="ad-middle"></div>
-      </div>
-    </div>
-
-    <div class="card" style="margin-top:12px;">
+    <div class="card">
       <h2>How to Install</h2>
-      <div class="list">
-        <ul>
-          <li>After download, open the APK from your browser downloads or Files app.</li>
-          <li>If Android blocks the install, enable “Install unknown apps” for your browser.</li>
-          <li>Tap Install and wait until it completes.</li>
-          <li>Open <strong>Rio Miner</strong> from your app drawer and configure your mining pool and wallet address.</li>
-        </ul>
-      </div>
+      <ul class="list">
+        <li>After download, open the APK from your browser downloads or Files app.</li>
+        <li>If Android blocks the install, enable “Install unknown apps” for your browser.</li>
+        <li>Tap Install and wait until it completes.</li>
+        <li>Open <strong>Rio Miner</strong> from your app drawer and configure your mining pool and wallet address.</li>
+      </ul>
     </div>
 
     <!-- BOTTOM AD -->
     <div class="ads-container">
       <div class="ads-frame">
+        <div class="ads-label">Advertisement</div>
         <div id="ad-bottom"></div>
       </div>
     </div>
@@ -382,7 +371,7 @@
   <!-- FLOATING BOTTOM AD -->
   <div id="floatingAd">
     <div id="floatingAdInner">
-      <button id="floatingClose" onclick="document.getElementById('floatingAd').style.display='none';">×</button>
+      <button id="floatingClose">×</button>
       <div id="ad-floating"></div>
     </div>
   </div>
@@ -396,7 +385,7 @@
     const downloadBtn = document.getElementById("downloadBtn");
 
     let seconds = 10;
-    const apkUrl = "https://drive.google.com/file/d/1kfrBm-WxQ5jP9ODOzr_BLQdw7LdHfqSH/view?usp=drive_link";
+    const apkUrl = "https://drive.google.com/file/d/1Plaf0_rY-E0Gzhrk3zF0zYE9nqwPuXTk/view?usp=drive_link";
 
     const timer = setInterval(() => {
       seconds--;
@@ -406,7 +395,7 @@
         downloadBtn.disabled = false;
         downloadBtn.textContent = "Start Download";
       } else {
-        countdownEl.textContent = String(seconds);
+        countdownEl.textContent = seconds;
       }
     }, 1000);
 
@@ -414,6 +403,19 @@
       if (downloadBtn.disabled) return;
       window.location.href = apkUrl;
     });
+
+    // floating ad show/hide
+    (function(){
+      const floating = document.getElementById('floatingAd');
+      const closeBtn = document.getElementById('floatingClose');
+      function updateFloating() {
+        if(window.innerWidth <= 768) floating.style.display = 'block';
+        else floating.style.display = 'none';
+      }
+      window.addEventListener('load', updateFloating);
+      window.addEventListener('resize', updateFloating);
+      closeBtn.addEventListener('click', ()=> floating.style.display='none');
+    })();
   </script>
 </body>
 </html>
