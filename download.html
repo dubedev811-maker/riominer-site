@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Download Rio Miner APK – Real Android Crypto Mining</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Download Rio Miner APK for Android. Real crypto mining app with live hashrate, shares, and wallet stats. No deposits, no unlock fees."
+  />
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-alt: #050816;
+      --accent: #22c55e;
+      --accent-soft: #22c55e33;
+      --text: #e5f0ff;
+      --muted: #8fa3c2;
+      --danger: #fb7185;
+      --border: #1f2937;
+      --radius-lg: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #0f172a 0, #020617 45%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 24px 16px 96px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: radial-gradient(circle at top, #22c55e, #16a34a, #0f172a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .brand span {
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .header-tag {
+      font-size: 11px;
+      color: var(--muted);
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.92);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top left, #020617, #020617 40%, #050816);
+      padding: 18px 16px 18px;
+      box-shadow: 0 24px 54px rgba(0,0,0,0.75);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 22px;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .warning {
+      font-size: 13px;
+      color: var(--danger);
+      margin-bottom: 12px;
+    }
+
+    .timer-text {
+      font-size: 14px;
+      margin: 8px 0 12px;
+      color: var(--muted);
+    }
+
+    .timer-text span {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .download-btn {
+      display: inline-block;
+      padding: 11px 22px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      background: radial-gradient(circle at top left, #22c55e, #16a34a);
+      color: #022c22;
+      box-shadow: 0 22px 48px rgba(34, 197, 94, 0.5);
+      margin-top: 4px;
+    }
+
+    .download-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .note {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .list {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    .ads-container {
+      margin: 18px 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .ads-frame {
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      background: radial-gradient(circle at top, #022c22, #020617);
+      box-shadow: 0 0 18px rgba(34, 197, 94, 0.45);
+      padding: 4px 6px;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .footer {
+      margin-top: 26px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Floating ad */
+    #floatingAd {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9999;
+      display: none;
+    }
+    #floatingAdInner {
+      margin: 0 auto 8px;
+      max-width: 360px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      box-shadow: 0 0 24px rgba(34, 197, 94, 0.7);
+      background: radial-gradient(circle at top, #022c22, #020617);
+      padding: 4px 8px 6px;
+      position: relative;
+    }
+    #floatingClose {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      border-radius: 999px;
+      border: none;
+      width: 22px;
+      height: 22px;
+      font-size: 14px;
+      line-height: 22px;
+      text-align: center;
+      cursor: pointer;
+      background: #020617;
+      color: #f9fafb;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    }
+
+    @media (max-width: 768px) {
+      #floatingAd { display: block; }
+    }
+  </style>
+
+  <!-- Adsterra loader -->
+  <script>
+    (function () {
+      const KEY = "d9b36f5efcfc1ead7b0130ac6ae63a0c";
+      const INVOKE = "https://www.highperformanceformat.com/d9b36f5efcfc1ead7b0130ac6ae63a0c/invoke.js";
+
+      function loadAd(containerId, w, h) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        container.innerHTML = "";
+
+        window.atOptions = {
+          key: KEY,
+          format: "iframe",
+          height: h,
+          width: w,
+          params: {}
+        };
+
+        const s = document.createElement("script");
+        s.type = "text/javascript";
+        s.src = INVOKE;
+        container.appendChild(s);
+      }
+
+      function renderAllAds() {
+        const mobile = window.innerWidth <= 768;
+        const bw = mobile ? 320 : 728;
+        const bh = mobile ? 50 : 90;
+
+        loadAd("ad-top", bw, bh);
+        loadAd("ad-middle", bw, bh);
+        loadAd("ad-bottom", bw, bh);
+        loadAd("ad-floating", 320, 50);
+      }
+
+      window.addEventListener("load", renderAllAds);
+      window.addEventListener("resize", renderAllAds);
+    })();
+  </script>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-logo">
+          <!-- Replace with your logo path -->
+          <img src="LOGO_URL_OR_PATH" alt="Rio Miner logo" />
+        </div>
+        <span>RIO MINER</span>
+      </div>
+      <div class="header-tag">
+        DOWNLOAD • REAL MINING APP
+      </div>
+    </header>
+
+    <!-- TOP AD -->
+    <div class="ads-container">
+      <div class="ads-frame">
+        <div id="ad-top"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h1>Download Rio Miner APK</h1>
+      <div class="meta">
+        File: <strong>RioMiner.apk</strong> • Approx size: 18–25 MB • Platform: Android  
+        <br/>Version: 1.0.0 • Release: 2025
+      </div>
+
+      <div class="warning">
+        ⚠️ Real crypto mining app – this is not a game or cloud mining. Your device will perform actual mining work.
+      </div>
+
+      <p class="timer-text">
+        Preparing your download… Please wait <span id="countdown">10</span> seconds.
+      </p>
+
+      <button id="downloadBtn" class="download-btn" disabled>
+        Please wait…
+      </button>
+
+      <p class="note">
+        When the timer finishes, the button will unlock. Tap it to start the APK download from our official server (Google Drive).
+      </p>
+
+      <div class="list">
+        <strong>Important before downloading:</strong>
+        <ul>
+          <li>Real mining will increase device temperature and battery usage.</li>
+          <li>We do not guarantee any earnings or profit from mining.</li>
+          <li>Make sure you understand your local laws regarding crypto mining.</li>
+          <li>Never share your wallet seed phrase or private keys with anyone.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- MIDDLE AD -->
+    <div class="ads-container">
+      <div class="ads-frame">
+        <div id="ad-middle"></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:18px;">
+      <h2>How to Install</h2>
+      <ul class="list">
+        <li>After download, open the APK from your browser downloads or Files app.</li>
+        <li>If Android blocks the install, enable “Install unknown apps” for your browser.</li>
+        <li>Tap Install and wait until it completes.</li>
+        <li>Open <strong>Rio Miner</strong> from your app drawer and configure your mining pool and wallet address.</li>
+      </ul>
+    </div>
+
+    <!-- BOTTOM AD -->
+    <div class="ads-container">
+      <div class="ads-frame">
+        <div id="ad-bottom"></div>
+      </div>
+    </div>
+
+    <div class="footer">
+      By downloading, you accept all risks related to device wear, electricity/data usage, and local regulations.
+      <br/>© <span id="year"></span> Rio Miner.
+    </div>
+  </div>
+
+  <!-- FLOATING BOTTOM AD -->
+  <div id="floatingAd">
+    <div id="floatingAdInner">
+      <button id="floatingClose" onclick="document.getElementById('floatingAd').style.display='none';">×</button>
+      <div id="ad-floating"></div>
+    </div>
+  </div>
+
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Countdown + download logic
+    const countdownEl = document.getElementById("countdown");
+    const downloadBtn = document.getElementById("downloadBtn");
+
+    let seconds = 10;
+    const apkUrl = "https://drive.google.com/file/d/1Plaf0_rY-E0Gzhrk3zF0zYE9nqwPuXTk/view?usp=drive_link";
+
+    const timer = setInterval(() => {
+      seconds--;
+      if (seconds <= 0) {
+        clearInterval(timer);
+        countdownEl.textContent = "0";
+        downloadBtn.disabled = false;
+        downloadBtn.textContent = "Start Download";
+      } else {
+        countdownEl.textContent = seconds;
+      }
+    }, 1000);
+
+    downloadBtn.addEventListener("click", () => {
+      if (downloadBtn.disabled) return;
+      window.location.href = apkUrl;
+    });
+  </script>
+</body>
+</html>
