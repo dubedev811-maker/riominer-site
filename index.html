@@ -30,15 +30,16 @@
       background: radial-gradient(circle at top left, #0f172a 0, #020617 45%, #000 100%);
       color: var(--text);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
     .page {
-      max-width: 480px;          /* MOBILE-FIRST WIDTH */
+      max-width: 420px;   /* Android-friendly width */
       margin: 0 auto;
-      padding: 16px 12px 90px;
+      padding: 16px 14px 96px;
     }
 
     .free-banner {
@@ -56,7 +57,7 @@
     }
 
     header {
-      padding: 6px 2px 4px;
+      padding: 4px 0 6px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -104,7 +105,7 @@
     .header-tag {
       font-size: 9px;
       color: var(--muted);
-      padding: 3px 8px;
+      padding: 4px 8px;
       border-radius: 999px;
       border: 1px solid var(--border);
       background: rgba(15, 23, 42, 0.92);
@@ -237,7 +238,14 @@
       padding: 4px 4px;
       max-width: 100%;
       overflow: hidden;
-      min-height: 54px; /* space for 320x50 */
+      min-height: 54px;
+    }
+
+    .ads-label {
+      font-size: 10px;
+      color: var(--muted);
+      margin-bottom: 2px;
+      text-align: left;
     }
 
     .footer {
@@ -255,13 +263,14 @@
       bottom: 0;
       z-index: 9999;
       display: none;
+      padding: 0 10px 6px;
     }
     #floatingAdInner {
-      margin: 0 auto 6px;
-      max-width: 360px;
+      margin: 0 auto;
+      max-width: 420px;
       border-radius: 999px;
       border: 1px solid var(--accent-soft);
-      box-shadow: 0 0 18px rgba(34, 197, 94, 0.7);
+      box-shadow: 0 0 24px rgba(34, 197, 94, 0.7);
       background: radial-gradient(circle at top, #022c22, #020617);
       padding: 4px 8px 6px;
       position: relative;
@@ -272,15 +281,15 @@
       right: -8px;
       border-radius: 999px;
       border: none;
-      width: 20px;
-      height: 20px;
-      font-size: 12px;
-      line-height: 20px;
+      width: 22px;
+      height: 22px;
+      font-size: 14px;
+      line-height: 22px;
       text-align: center;
       cursor: pointer;
       background: #020617;
       color: #f9fafb;
-      box-shadow: 0 0 8px rgba(0,0,0,0.6);
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
     }
 
     @media (max-width: 768px) {
@@ -288,75 +297,52 @@
     }
   </style>
 
-  <!-- Adsterra loader using your 4 zones -->
+  <!-- Multi-zone Adsterra loader -->
   <script>
     (function () {
+      // one zone per placement
       const ZONES = {
-        rect300: { // 300x250
-          key: "0cceb98217b86ee1bbfac0774d2e5784",
-          invoke: "https://www.highperformanceformat.com/0cceb98217b86ee1bbfac0774d2e5784/invoke.js"
-        },
-        banner728: { // 728x90 (top banner)
-          key: "d9b36f5efcfc1ead7b0130ac6ae63a0c",
-          invoke: "https://www.highperformanceformat.com/d9b36f5efcfc1ead7b0130ac6ae63a0c/invoke.js"
-        },
-        banner468: { // 468x60
-          key: "db01d80ef2e19e4eb9efe786face9565",
-          invoke: "https://www.highperformanceformat.com/db01d80ef2e19e4eb9efe786face9565/invoke.js"
-        },
-        banner320: { // 320x50 (floating)
-          key: "2b6e1e6f18154c0f8fdadc6ab7b7fcad",
-          invoke: "https://www.highperformanceformat.com/2b6e1e6f18154c0f8fdadc6ab7b7fcad/invoke.js"
-        }
+        top:    { key: "d9b36f5efcfc1ead7b0130ac6ae63a0c", w: 728, h: 90,  invoke: "//www.highperformanceformat.com/d9b36f5efcfc1ead7b0130ac6ae63a0c/invoke.js" },
+        middle: { key: "0cceb98217b86ee1bbfac0774d2e5784", w: 300, h: 250, invoke: "//www.highperformanceformat.com/0cceb98217b86ee1bbfac0774d2e5784/invoke.js" },
+        bottom: { key: "db01d80ef2e19e4eb9efe786face9565", w: 468, h: 60,  invoke: "//www.highperformanceformat.com/db01d80ef2e19e4eb9efe786face9565/invoke.js" },
+        float:  { key: "2b6e1e6f18154c0f8fdadc6ab7b7fcad", w: 320, h: 50,  invoke: "//www.highperformanceformat.com/2b6e1e6f18154c0f8fdadc6ab7b7fcad/invoke.js" }
       };
 
-      function loadAd(containerId, zone, w, h) {
+      function loadZone(containerId, zone) {
         const container = document.getElementById(containerId);
-        if (!container || !zone || !zone.key || !zone.invoke) return;
-
+        if (!container || !zone) return;
         container.innerHTML = "";
 
         window.atOptions = {
           key: zone.key,
           format: "iframe",
-          height: h,
-          width: w,
+          height: zone.h,
+          width: zone.w,
           params: {}
         };
 
         const s = document.createElement("script");
         s.type = "text/javascript";
+        s.async = true;
         s.src = zone.invoke;
         container.appendChild(s);
       }
 
       function renderAllAds() {
-        const mobile = window.innerWidth <= 768;
-
-        if (mobile) {
-          // Mobile sizes
-          loadAd("ad1", ZONES.banner728, 320, 50);   // hero banner
-          loadAd("ad2", ZONES.rect300, 300, 250);    // mid rectangle
-          loadAd("ad3", ZONES.banner468, 320, 50);   // bottom banner
-          loadAd("ad-floating", ZONES.banner320, 320, 50); // floating
-        } else {
-          // Desktop sizes
-          loadAd("ad1", ZONES.banner728, 728, 90);
-          loadAd("ad2", ZONES.rect300, 300, 250);
-          loadAd("ad3", ZONES.banner468, 468, 60);
-          loadAd("ad-floating", ZONES.banner320, 320, 50);
-        }
+        loadZone("ad1", ZONES.top);
+        loadZone("ad2", ZONES.middle);
+        loadZone("ad3", ZONES.bottom);
+        loadZone("ad-floating", ZONES.float);
       }
 
       window.addEventListener("load", renderAllAds);
-      window.addEventListener("resize", renderAllAds);
     })();
   </script>
 </head>
 <body>
   <div class="page">
     <div class="free-banner">
-      100% Free Real Miner – No deposits, no unlock fees, no cloud tricks
+      100% Free Real Miner – No deposit, no unlock fees, no cloud tricks
     </div>
 
     <header>
@@ -391,9 +377,10 @@
         <a href="YOUR_PRIVACY_POLICY_URL_HERE" class="btn-secondary">Privacy Policy</a>
       </div>
 
-      <!-- HERO AD -->
+      <!-- HERO / TOP AD -->
       <div class="ads-container">
         <div class="ads-frame">
+          <div class="ads-label">Advertisement</div>
           <div id="ad1"></div>
         </div>
       </div>
@@ -432,6 +419,7 @@
     <!-- MID AD -->
     <div class="ads-container">
       <div class="ads-frame">
+        <div class="ads-label">Advertisement</div>
         <div id="ad2"></div>
       </div>
     </div>
@@ -450,6 +438,7 @@
     <!-- BOTTOM AD -->
     <div class="ads-container">
       <div class="ads-frame">
+        <div class="ads-label">Advertisement</div>
         <div id="ad3"></div>
       </div>
     </div>
@@ -487,6 +476,19 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // simple floating close behavior
+    (function(){
+      const floating = document.getElementById('floatingAd');
+      const closeBtn = document.getElementById('floatingClose');
+      function updateFloating() {
+        if(window.innerWidth <= 768) floating.style.display = 'block';
+        else floating.style.display = 'none';
+      }
+      window.addEventListener('load', updateFloating);
+      window.addEventListener('resize', updateFloating);
+      closeBtn.addEventListener('click', ()=> floating.style.display='none');
+    })();
   </script>
 </body>
 </html>
