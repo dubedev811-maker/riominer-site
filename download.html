@@ -35,29 +35,29 @@
     a:hover { text-decoration: underline; }
 
     .page {
-      max-width: 800px;
+      max-width: 480px;
       margin: 0 auto;
-      padding: 24px 16px 96px;
+      padding: 16px 12px 90px;
     }
 
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 18px;
+      gap: 10px;
+      margin-bottom: 12px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
 
     .brand-logo {
-      width: 36px;
-      height: 36px;
-      border-radius: 12px;
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
       background: radial-gradient(circle at top, #22c55e, #16a34a, #0f172a);
       display: flex;
       align-items: center;
@@ -74,19 +74,19 @@
     }
 
     .brand span {
-      font-size: 14px;
+      font-size: 13px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
     }
 
     .header-tag {
-      font-size: 11px;
+      font-size: 9px;
       color: var(--muted);
-      padding: 4px 10px;
+      padding: 3px 8px;
       border-radius: 999px;
       border: 1px solid var(--border);
       background: rgba(15, 23, 42, 0.92);
-      letter-spacing: 0.16em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       text-align: center;
     }
@@ -95,30 +95,31 @@
       border-radius: var(--radius-lg);
       border: 1px solid var(--border);
       background: radial-gradient(circle at top left, #020617, #020617 40%, #050816);
-      padding: 18px 16px 18px;
-      box-shadow: 0 24px 54px rgba(0,0,0,0.75);
+      padding: 14px 12px 14px;
+      box-shadow: 0 18px 46px rgba(0,0,0,0.75);
+      font-size: 13px;
     }
 
     h1 {
-      margin: 0 0 8px;
-      font-size: 22px;
+      margin: 0 0 6px;
+      font-size: 18px;
     }
 
     .meta {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--muted);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .warning {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--danger);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .timer-text {
-      font-size: 14px;
-      margin: 8px 0 12px;
+      font-size: 13px;
+      margin: 6px 0 10px;
       color: var(--muted);
     }
 
@@ -129,15 +130,15 @@
 
     .download-btn {
       display: inline-block;
-      padding: 11px 22px;
+      padding: 9px 18px;
       border-radius: 999px;
       border: none;
       cursor: pointer;
       font-weight: 600;
-      font-size: 14px;
+      font-size: 13px;
       background: radial-gradient(circle at top left, #22c55e, #16a34a);
       color: #022c22;
-      box-shadow: 0 22px 48px rgba(34, 197, 94, 0.5);
+      box-shadow: 0 16px 38px rgba(34, 197, 94, 0.5);
       margin-top: 4px;
     }
 
@@ -147,19 +148,24 @@
     }
 
     .note {
-      margin-top: 10px;
-      font-size: 12px;
+      margin-top: 8px;
+      font-size: 11px;
       color: var(--muted);
     }
 
     .list {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--muted);
-      margin-top: 12px;
+      margin-top: 10px;
+    }
+
+    .list ul {
+      margin: 4px 0 0;
+      padding-left: 18px;
     }
 
     .ads-container {
-      margin: 18px 0;
+      margin: 12px 0;
       display: flex;
       justify-content: center;
     }
@@ -168,16 +174,17 @@
       border-radius: 999px;
       border: 1px solid var(--accent-soft);
       background: radial-gradient(circle at top, #022c22, #020617);
-      box-shadow: 0 0 18px rgba(34, 197, 94, 0.45);
-      padding: 4px 6px;
+      box-shadow: 0 0 14px rgba(34, 197, 94, 0.45);
+      padding: 4px 4px;
       max-width: 100%;
       overflow: hidden;
+      min-height: 54px;
     }
 
     .footer {
-      margin-top: 26px;
+      margin-top: 18px;
       text-align: center;
-      font-size: 12px;
+      font-size: 11px;
       color: var(--muted);
     }
 
@@ -191,11 +198,11 @@
       display: none;
     }
     #floatingAdInner {
-      margin: 0 auto 8px;
+      margin: 0 auto 6px;
       max-width: 360px;
       border-radius: 999px;
       border: 1px solid var(--accent-soft);
-      box-shadow: 0 0 24px rgba(34, 197, 94, 0.7);
+      box-shadow: 0 0 18px rgba(34, 197, 94, 0.7);
       background: radial-gradient(circle at top, #022c22, #020617);
       padding: 4px 8px 6px;
       position: relative;
@@ -206,15 +213,15 @@
       right: -8px;
       border-radius: 999px;
       border: none;
-      width: 22px;
-      height: 22px;
-      font-size: 14px;
-      line-height: 22px;
+      width: 20px;
+      height: 20px;
+      font-size: 12px;
+      line-height: 20px;
       text-align: center;
       cursor: pointer;
       background: #020617;
       color: #f9fafb;
-      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+      box-shadow: 0 0 8px rgba(0,0,0,0.6);
     }
 
     @media (max-width: 768px) {
@@ -222,20 +229,36 @@
     }
   </style>
 
-  <!-- Adsterra loader -->
+  <!-- Adsterra loader using same 4 zones -->
   <script>
     (function () {
-      const KEY = "d9b36f5efcfc1ead7b0130ac6ae63a0c";
-      const INVOKE = "https://www.highperformanceformat.com/d9b36f5efcfc1ead7b0130ac6ae63a0c/invoke.js";
+      const ZONES = {
+        rect300: { // 300x250
+          key: "0cceb98217b86ee1bbfac0774d2e5784",
+          invoke: "https://www.highperformanceformat.com/0cceb98217b86ee1bbfac0774d2e5784/invoke.js"
+        },
+        banner728: { // 728x90
+          key: "d9b36f5efcfc1ead7b0130ac6ae63a0c",
+          invoke: "https://www.highperformanceformat.com/d9b36f5efcfc1ead7b0130ac6ae63a0c/invoke.js"
+        },
+        banner468: { // 468x60
+          key: "db01d80ef2e19e4eb9efe786face9565",
+          invoke: "https://www.highperformanceformat.com/db01d80ef2e19e4eb9efe786face9565/invoke.js"
+        },
+        banner320: { // 320x50
+          key: "2b6e1e6f18154c0f8fdadc6ab7b7fcad",
+          invoke: "https://www.highperformanceformat.com/2b6e1e6f18154c0f8fdadc6ab7b7fcad/invoke.js"
+        }
+      };
 
-      function loadAd(containerId, w, h) {
+      function loadAd(containerId, zone, w, h) {
         const container = document.getElementById(containerId);
-        if (!container) return;
+        if (!container || !zone || !zone.key || !zone.invoke) return;
 
         container.innerHTML = "";
 
         window.atOptions = {
-          key: KEY,
+          key: zone.key,
           format: "iframe",
           height: h,
           width: w,
@@ -244,19 +267,24 @@
 
         const s = document.createElement("script");
         s.type = "text/javascript";
-        s.src = INVOKE;
+        s.src = zone.invoke;
         container.appendChild(s);
       }
 
       function renderAllAds() {
         const mobile = window.innerWidth <= 768;
-        const bw = mobile ? 320 : 728;
-        const bh = mobile ? 50 : 90;
 
-        loadAd("ad-top", bw, bh);
-        loadAd("ad-middle", bw, bh);
-        loadAd("ad-bottom", bw, bh);
-        loadAd("ad-floating", 320, 50);
+        if (mobile) {
+          loadAd("ad-top", ZONES.banner728, 320, 50);
+          loadAd("ad-middle", ZONES.rect300, 300, 250);
+          loadAd("ad-bottom", ZONES.banner468, 320, 50);
+          loadAd("ad-floating", ZONES.banner320, 320, 50);
+        } else {
+          loadAd("ad-top", ZONES.banner728, 728, 90);
+          loadAd("ad-middle", ZONES.rect300, 300, 250);
+          loadAd("ad-bottom", ZONES.banner468, 468, 60);
+          loadAd("ad-floating", ZONES.banner320, 320, 50);
+        }
       }
 
       window.addEventListener("load", renderAllAds);
@@ -269,7 +297,6 @@
     <header>
       <div class="brand">
         <div class="brand-logo">
-          <!-- Replace with your logo path -->
           <img src="riominer_logo.png" alt="Rio Miner logo" />
         </div>
         <span>RIO MINER</span>
@@ -289,8 +316,8 @@
     <div class="card">
       <h1>Download Rio Miner APK</h1>
       <div class="meta">
-        File: <strong>RioMiner.apk</strong> • Approx size: 30-50 MB • Platform: Android  
-        <br/>Version: 1.0.1 • Release: 2025
+        File: <strong>RioMiner.apk</strong> • Approx size: 18–25 MB • Platform: Android  
+        <br/>Version: 1.0.0 • Release: 2025
       </div>
 
       <div class="warning">
@@ -306,7 +333,7 @@
       </button>
 
       <p class="note">
-        When the timer finishes, the button will unlock. Tap it to start the APK download from our official server (Google Drive).
+        When the timer finishes, the button will unlock. Tap it to start the APK download from our official Google Drive link.
       </p>
 
       <div class="list">
@@ -327,14 +354,16 @@
       </div>
     </div>
 
-    <div class="card" style="margin-top:18px;">
+    <div class="card" style="margin-top:12px;">
       <h2>How to Install</h2>
-      <ul class="list">
-        <li>After download, open the APK from your browser downloads or Files app.</li>
-        <li>If Android blocks the install, enable “Install unknown apps” for your browser.</li>
-        <li>Tap Install and wait until it completes.</li>
-        <li>Open <strong>Rio Miner</strong> from your app drawer and configure your mining pool and wallet address.</li>
-      </ul>
+      <div class="list">
+        <ul>
+          <li>After download, open the APK from your browser downloads or Files app.</li>
+          <li>If Android blocks the install, enable “Install unknown apps” for your browser.</li>
+          <li>Tap Install and wait until it completes.</li>
+          <li>Open <strong>Rio Miner</strong> from your app drawer and configure your mining pool and wallet address.</li>
+        </ul>
+      </div>
     </div>
 
     <!-- BOTTOM AD -->
@@ -377,7 +406,7 @@
         downloadBtn.disabled = false;
         downloadBtn.textContent = "Start Download";
       } else {
-        countdownEl.textContent = seconds;
+        countdownEl.textContent = String(seconds);
       }
     }, 1000);
 
